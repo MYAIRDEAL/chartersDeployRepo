@@ -15,11 +15,13 @@ function ContactUsForm({ props }) {
     });
 
 
-
     useEffect(() => {
         Object.keys(formData).forEach(key => {
             localStorage.setItem(key, formData[key]);
         });
+        return () => {
+            localStorage.clear();
+        }
     }, [formData]);
 
     const handleChange = (event) => {

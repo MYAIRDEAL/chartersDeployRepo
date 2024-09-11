@@ -15,21 +15,26 @@ const ShowEstimates = () => {
         setDate(dateString);
     };
 
-    const [fromValue, setFromValue] = useState(localStorage.getItem('fromvalue') || 'Goa');
-    const [toValue, setToValue] = useState(localStorage.getItem('tovalue') || 'Hyderabad');
+    const [fromValue, setFromValue] = useState(localStorage.getItem('fromvalue') || '');
+    const [toValue, setToValue] = useState(localStorage.getItem('tovalue') || '');
     const [selectType, setSelectType] = useState('');
     const [formData, setFormData] = useState(null);
 
     const handleFromChange = (e) => setFromValue(e.target.value);
     const handleToChange = (e) => setToValue(e.target.value);
 
-    const [passengers, setPassengers] = useState(localStorage.getItem('passengers') || '0');
+    const [passengers, setPassengers] = useState(localStorage.getItem('passengers') || '');
 
     useEffect(() => {
         localStorage.setItem('passengers', passengers)
         localStorage.setItem('tovalue', toValue)
         localStorage.setItem('fromvalue', fromValue)
         localStorage.setItem('dateData', dateData)
+
+        return () => {
+            localStorage.clear();
+        }
+
     }, [passengers, toValue, fromValue, dateData])
 
     const handleSwap = () => {

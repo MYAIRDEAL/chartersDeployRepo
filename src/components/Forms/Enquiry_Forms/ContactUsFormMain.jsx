@@ -23,7 +23,7 @@ function ContactUsFormMain() {
         enquiryemail: localStorage.getItem('enquiryemail') || '',
         enquiryphone: localStorage.getItem('enquiryphone') || '',
         enquirytype: localStorage.getItem('enquirytype') || '',
-        enquirydate : formattedDate,
+        enquirydate: formattedDate,
     });
 
 
@@ -32,6 +32,11 @@ function ContactUsFormMain() {
         Object.keys(formData).forEach(key => {
             localStorage.setItem(key, formData[key]);
         });
+
+        return () => {
+            localStorage.clear();
+        }
+
     }, [formData]);
 
     const handleChange = (event) => {
@@ -41,7 +46,7 @@ function ContactUsFormMain() {
         });
     };
 
-  
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
