@@ -1,0 +1,27 @@
+.animationContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+}
+
+.customAnimation {
+    display: block;
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: loadFromBottom 2s ease-out forwards;
+}
+
+@keyframes loadFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

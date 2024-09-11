@@ -1,0 +1,252 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { DatePicker } from 'antd';
+import 'antd/dist/reset.css'; // Import Ant Design styles
+
+
+import { IoMdSwap } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import { RiFlightTakeoffFill } from "react-icons/ri";
+
+import '../componentCss/ShowEstimatesCss.css'
+import axios from 'axios';
+
+// const { RangePicker } = DatePicker;
+
+const ShowEstimates = () => {
+    const [dateData, setDate] = useState(null);
+
+    const onChange = (date, dateString) => {
+        setDate(dateString);
+    };
+
+
+    const [fromValue, setFromValue] = useState('VOBL');
+    const [toValue, setToValue] = useState('OMDW');
+
+    // Function to handle input value change
+    const handleFromChange = (e) => setFromValue(e.target.value);
+    const handleToChange = (e) => setToValue(e.target.value);
+
+    // Function to swap values
+    const handleSwap = () => {
+        setFromValue(toValue);
+        setToValue(fromValue);
+    };
+
+
+    const [selectType, setSelectType] = useState('jet');
+
+    useEffect(() => {
+        console.log(selectType)
+    }, [selectType])
+
+    const [selectTypePopUp, setSelectTypePopUp] = useState(false)
+    const dropdownRef = useRef(null);
+
+    // Handle clicking outside to close the dropdown
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setSelectTypePopUp(false);
+        }
+    };
+
+    // Close dropdown after selecting an option
+    const handleOptionClick = (option) => {
+        setSelectType(option);
+        setSelectTypePopUp(false);
+    };
+
+    // Add event listener for clicks outside
+    React.useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+
+    // Fetching the Booking Data
+
+    const [formData, setFormData] = useState(null); // Initialize with null
+
+    const formHandler = (element) => {
+        element.preventDefault();
+        let name = element.target.name.value;
+        let email = element.target.email.value;
+        let to = element.target.to.value;
+        let from = element.target.from.value;
+        let phone = element.target.phone.value;
+        let passengers = element.target.passengers.value;
+        let date = dateData;
+        let selectType = element.target.selectType.value; // Assuming this is part of your form
+
+        let postData = { name, email, to, from, phone, passengers, date, selectType };
+        setFormData(postData);
+    };
+
+    useEffect(() => {
+        const sendData = async () => {
+            if (formData) { // Ensure formData is not null
+                try {
+                    let response = await axios.post('http://localhost:8000/api/admin/demandsearch', formData);
+                    console.log(response.data); // Log the response data instead of formData
+                    console.log('Request successful');
+                } catch (error) {
+                    console.error('Error occurred:', error);
+                }
+            }
+        };
+
+        sendData(); // Call the async function
+    }, [formData]);
+
+
+
+    return (
+        <div className=' md:h-[50vh] h[30vh] w-full p-4 flex flex-col justify-center items-center'>
+            <h1 className='text-[2.5rem] text-white font-semibold'>Private Jet Charters</h1>
+
+            <div className=' w-[75%] font-semibold md:flex hidden'>
+                <button className={` w-[10rem] h-[2.5rem] outline-none mx-3 text-white rounded-lg transition-all duration-700 ${selectType === 'jet' ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`} onClick={(e) => setSelectType(e.target.innerText.toLowerCase())} >Jet</button>
+                <button className={` w-[10rem] h-[2.5rem] mx-3 outline-none  rounded-lg  text-white transition-all duration-700 ${selectType === 'helicoptor' ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`} onClick={(e) => setSelectType(e.target.innerText.toLowerCase())} >Helicoptor</button>
+            </div>
+
+            <div className='w-[80%] md:hidden flex flex-col relative' ref={dropdownRef}>
+                {/* Dropdown Toggle */}
+                <div
+                    className='w-[50%] flex items-center justify-around rounded-lg bg-hoverColor text-white cursor-pointer'
+                    onClick={() => setSelectTypePopUp(prev => !prev)}
+                >
+                    <p className='mt-2 flex items-center'>{selectType || 'Jet'}</p>
+                    <IoIosArrowDown />
+                </div>
+
+                {/* Dropdown Menu */}
+                <div
+                    className={`absolute w-[50%] mt-2 rounded-lg bg-selectType ${selectTypePopUp ? 'block' : 'hidden'} z-10`}
+                    style={{ top: '100%' }}
+                >
+                    <ul className='list-none p-0 m-0'>
+                        <li
+                            className={`text-[1.2rem] transition-all duration-300 text-white py-2 pl-5 ${selectType === 'jet' ? 'bg-hoverColor' : ''}`}
+                            onClick={() => handleOptionClick('Jet')}
+                        >
+                            Jet
+                        </li>
+                        <li
+                            className={`text-[1.2rem] transition-all duration-300 text-white py-2 pl-5 ${selectType === 'air ambulance' ? 'bg-hoverColor' : ''}`}
+                            onClick={() => handleOptionClick('Air Ambulance')}
+                        >
+                            Air Ambulance
+                        </li>
+                        <li
+                            className={`text-[1.2rem] transition-all duration-300 text-white py-2 pl-5 ${selectType === 'charter' ? 'bg-hoverColor' : ''}`}
+                            onClick={() => handleOptionClick('Charter')}
+                        >
+                            Charter
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <form action="#" method='post' onSubmit={formHandler} >
+
+                <div className="form">
+
+
+                    <div id='first' >
+                        <label htmlFor='from' className='flex gap-4'>FROM {<RiFlightTakeoffFill />} To</label>
+                        <div id='oneinnerdiv' >
+                            <input
+                                type='text'
+                                name='from'
+                                id='from'
+                                placeholder='VOBL'
+                                value={fromValue} onChange={handleFromChange}
+
+                            />
+                            <IoMdSwap id='icon' onClick={handleSwap} />
+
+                            <input
+                                type='text'
+                                name='to'
+                                id='to'
+                                placeholder='OMDW'
+                                value={toValue}
+                                onChange={handleToChange}
+                            />
+                        </div>
+                    </div>
+
+
+                    <div className='second' >
+                        <label htmlFor='departure'>DEPARTURE</label>
+                        <DatePicker
+                            showTime
+                            format='DD-MM-YYYY HH:mm'
+                            id='date'
+                            onChange={onChange}
+                        />
+
+                    </div>
+
+                    <div className='third'>
+                        <label htmlFor='passengers'>PASSENGERS</label>
+                        <input
+                            type='number'
+                            name='passengers'
+                            placeholder='0'
+
+                        />
+                    </div>
+
+                    <div className='fourth' >
+                        <label htmlFor='phone'>Phone</label>
+                        <input
+                            type='number'
+                            name='phone'
+                            placeholder='9876745329'
+
+                        />
+                    </div>
+
+
+                    <div className='five'>
+                        <label htmlFor='email'>Email</label>
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder='abc@gmail.com'
+
+                        />
+                    </div>
+
+
+                    <div className='six' >
+                        <label htmlFor='name'>Name</label>
+                        <input
+                            type='text'
+                            name='name'
+                            placeholder='Jon'
+
+                        />
+                    </div>
+
+                    <div className='seven' >
+                        <button
+                            type='submit'
+
+                        >
+                            SHOW ESTIMATES
+                        </button>
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+    );
+};
+
+export default ShowEstimates;
