@@ -41,7 +41,8 @@ function AdminPanel() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/components');
+                // const response = await axios.get('http://localhost:8000/api/components');
+                const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/components');
                 setComponents(response.data);
             } catch (error) {
                 console.error(error);
@@ -58,7 +59,8 @@ function AdminPanel() {
         setComponents(updatedComponents);
 
         try {
-            const response = await axios.post('http://localhost:8000/api/components', updatedComponents);
+            // const response = await axios.post('http://localhost:8000/api/components', updatedComponents);
+            const response = await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/components', updatedComponents);
             console.log(response.data);
         } catch (error) {
             console.error(error);

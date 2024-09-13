@@ -2,7 +2,7 @@ import React from 'react';
 import Attentent from '../../assets/F-5.jpg';
 import Carousal from './Carousal';
 import CarousalDetails from './CarousalDetails';
-import Temp from '../Temp_Section/ExtraTempFiles/Temp';
+import PushFleetDetails from '../Home_Section/Push_Search/PushFleetDetails';
 
 
 const Testimonials = () => {
@@ -17,6 +17,7 @@ const Testimonials = () => {
             >
                 <Carousal />
                 <CarousalDetails />
+                {/* <PushFleetDetails /> */}
 
             </div>
             {/* <Temp /> */}

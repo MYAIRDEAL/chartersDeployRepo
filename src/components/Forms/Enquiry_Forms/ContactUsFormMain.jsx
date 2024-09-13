@@ -52,7 +52,8 @@ function ContactUsFormMain() {
         event.preventDefault();
 
         try {
-            await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
+            // await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
+            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             setFormData({
                 enquiryname: '',
                 enquiryemail: '',
@@ -70,7 +71,7 @@ function ContactUsFormMain() {
 
 
     return (
-        <div className='w-[46rem]   flex justify-center flex-col'>
+        <div className='w-[40rem]   flex justify-center flex-col'>
             <div>
                 <h1 className='text-hoverColor tracking-[0.5rem] my-7 mx-4'>REQUEST A CALL BACK</h1>
                 <div>
@@ -83,7 +84,7 @@ function ContactUsFormMain() {
                                 name='enquiryname'
                                 // placeholder='Name'
                                 required
-                                className={` 344:w-[19rem] my-0  360:w-[20.5rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor`}
+                                className={` 344:w-[19rem] my-0  360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor`}
                                 onChange={handleChange}
                                 value={formData.enquiryname}
                                 x />
@@ -96,7 +97,7 @@ function ContactUsFormMain() {
                                 name='enquiryemail'
                                 required
                                 // placeholder='Email'
-                                className='344:w-[19rem] my-0 360:w-[20.5rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.enquiryemail}
                             />
@@ -109,7 +110,7 @@ function ContactUsFormMain() {
                                 name='enquiryphone'
                                 required
                                 // placeholder='Phone'
-                                className='344:w-[19rem] my-0 360:w-[20.5rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.enquiryphone}
                             />
@@ -122,7 +123,7 @@ function ContactUsFormMain() {
                                 name='enquirytype'
                                 required
                                 // placeholder='Mid Size'
-                                className='344:w-[19rem] my-0 360:w-[20.5rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.enquirytype}
                             />

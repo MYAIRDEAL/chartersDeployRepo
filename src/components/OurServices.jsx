@@ -18,12 +18,12 @@ function OurServices() {
                     </h1>
                 </div>
                 <div>
-                    <h1 className='text-[3vw] m-3'>
+                    <h1 className='text-[2.5vw] m-3'>
                         We Have Best Luxury Services For You
                     </h1>
                 </div>
                 <div className='m-3'>
-                    <p>
+                    <p className='text-[0.9rem]'>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quo ab modi necessitatibus ipsam fugiat quis? Ipsam, dolorem sunt repudiandae, culpa ea, esse quibusdam reiciendis consequuntur reprehenderit quis aliquam aperiam! Nostrum laborum laboriosam alias.
                     </p>
                 </div>
@@ -36,57 +36,57 @@ function OurServices() {
 
             </div>
 
-            <div className=' flex flex-wrap w-full md:w-[60%] items-center  bg-cover md:rounded-md  justify-around' style={{
+            <div className=' flex flex-wrap w-full md:w-[60%] items-center py-10  bg-cover md:rounded-md  justify-around' style={{
                 backgroundImage: ` linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),  url(${imag})`
             }}>
 
-                <div className=' hover:bg-hoverColor text-white  cursor-pointer transition-all duration-500 h-[17rem] md:w-[21rem] m-3 rounded-md'>
+                <div className=' hover:bg-hoverColor text-white  cursor-pointer transition-all duration-500 h-[15rem] md:w-[21rem] m-3 rounded-md'>
 
                     <div>
-                        <FaPaperPlane className=' 375:w-[2rem] 375:h-[2rem] 380:w-[3rem] 380:h-[3rem] m-3' />
+                        <FaPaperPlane className=' 375:w-[2rem] 375:h-[2rem] 380:w-[2.3rem] 380:h-[3rem] m-3' />
                     </div>
                     <div>
-                        <h1 className='380:text-xl m-6'>Private Jet Charter</h1>
-                        <p className='text-lg m-6'>
+                        <h1 className='380:text-[1.3rem] m-6'>Private Jet Charter</h1>
+                        <p className='text-[1rem] m-6'>
                             We bring the right people together to challenge established thinking and drive transform in 2020
                         </p>
                     </div>
                 </div>
 
 
-                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500 h-[17rem] md:w-[21rem] m-3 rounded-md'>
+                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500 h-[15rem] md:w-[21rem] m-3 rounded-md'>
                     <div>
-                        <MdOutlineSettingsSuggest className=' 375:w-[2rem] 375:h-[2rem] 380:w-[3rem] 380:h-[3rem] m-3' />
+                        <MdOutlineSettingsSuggest className=' 375:w-[2rem] 375:h-[2rem] 380:w-[2.3rem] 380:h-[3rem] m-3' />
                     </div>
                     <div>
-                        <h1 className='380:text-xl m-6'>Private Jet Charter</h1>
-                        <p className='text-lg m-6'>
+                        <h1 className='380:text-[1.3rem] m-6'>Private Jet Charter</h1>
+                        <p className='text-[1rem] m-6'>
                             We bring the right people together to challenge established thinking and drive transform in 2020
                         </p>
                     </div>
                 </div>
 
 
-                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500  h-[17rem] md:w-[21rem] m-3 rounded-md'>
+                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500  h-[15rem] md:w-[21rem] m-3 rounded-md'>
                     <div>
-                        <FaTruckDroplet className=' 375:w-[2rem] 375:h-[2rem] 380:w-[3rem] 380:h-[3rem] m-3' />
+                        <FaTruckDroplet className=' 375:w-[2rem] 375:h-[2rem] 380:w-[2.3rem] 380:h-[3rem] m-3' />
                     </div>
                     <div>
-                        <h1 className='380:text-xl m-6'>Private Helicopter</h1>
-                        <p className='text-lg m-6'>
+                        <h1 className='380:text-[1.3rem] m-6'>Private Helicopter</h1>
+                        <p className='text-[1rem] m-6'>
                             We bring the right people together to challenge established thinking and drive transform in 2020
                         </p>
                     </div>
                 </div>
 
 
-                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500 h-[17rem] md:w-[21rem] m-3  rounded-md'>
+                <div className='hover:bg-hoverColor text-white cursor-pointer transition-all duration-500 h-[15rem] md:w-[21rem] m-3  rounded-md'>
                     <div>
-                        <CgProfile className=' 375:w-[2rem] 375:h-[2rem] 380:w-[3rem] 380:h-[3rem] m-3' />
+                        <CgProfile className=' 375:w-[2rem] 375:h-[2rem] 380:w-[2.3rem] 380:h-[3rem] m-3' />
                     </div>
                     <div>
-                        <h1 className='380:text-xl m-6'>Private Ambulance</h1>
-                        <p className='text-lg m-6'>
+                        <h1 className='380:text-[1.3rem] m-6'>Private Ambulance</h1>
+                        <p className='text-[1rem] m-6'>
                             We bring the right people together to challenge established thinking and drive transform in 2020
                         </p>
                     </div>

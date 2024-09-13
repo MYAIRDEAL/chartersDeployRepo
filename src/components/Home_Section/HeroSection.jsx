@@ -61,15 +61,15 @@ function HeroSection() {
                                         </div>
                                         {/* Image Section */}
                                         <div className='relative w-full max-w-[40rem] md:flex hidden mb-4 md:mb-0 animationContainer'>
-                                            <img src={fram} alt="Frame" className='absolute inset-0  m-auto customAnimation' />
-                                            <img src={slide.img} alt="Frameplane" className='absolute inset-0 m-auto customAnimation' />
+                                            <img src={fram} alt="Frame" className='w-[70vh] absolute inset-0  m-auto customAnimation' />
+                                            <img src={slide.img} alt="Frameplane" className='w-[70vh] absolute inset-0 m-auto customAnimation' />
                                         </div>
                                         {/* Text Content */}
                                         <div className='flex flex-col w-full max-w-[100%] md:max-w-[35%] items-start md:items-start justify-center text-center md:text-left'>
-                                            <div className='m-4'>
+                                            {/* <div className='m-4'>
                                                 <span className='text-hoverColor text-xl block md:inline'>Welcome </span>
                                                 to Flights
-                                            </div>
+                                            </div> */}
                                             <div className='text-[4vw] m-4'>
                                                 <h1 className='leading-none transition-all duration-700'>
                                                     Private <span className='text-hoverColor transition-all duration-700 ease-in-out'> {slide.name} </span> with Global Coverage
@@ -86,7 +86,7 @@ function HeroSection() {
                             ))
                                 :
 
-                                'No Testimonials Found'
+                                'Welcom to Book Any Jet'
                         }
                     </div>
                 </div>

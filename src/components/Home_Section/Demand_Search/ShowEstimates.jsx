@@ -117,7 +117,8 @@ const ShowEstimates = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let temp = await axios.get('http://localhost:8000/api/admin/getalltypes');
+                // let temp = await axios.get('http://localhost:8000/api/admin/getalltypes');
+                let temp = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getalltypes');
                 setGetType(temp.data?.data || []);
             } catch (error) {
                 console.error('Server is Busy try after some time');
@@ -137,7 +138,7 @@ const ShowEstimates = () => {
                             if (e.active === 'yes') {
                                 return (
                                     <button
-                                        className={`w-[10rem] h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
+                                        className={`w-[25vh] h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
                                         onClick={() => setSelectType(e.section)}
                                         key={e._id}
                                     >
@@ -167,7 +168,7 @@ const ShowEstimates = () => {
                     className={`absolute w-[50%] mt-2 rounded-lg bg-selectType ${selectTypePopUp ? 'block' : 'hidden'} z-10`}
                     style={{ top: '100%' }}
                 >
-                    <ul className='list-none p-0 m-0'>
+                    <ul className='list-none p-0 m-0 '>
 
                         {
                             getType?.length > 0 ? (

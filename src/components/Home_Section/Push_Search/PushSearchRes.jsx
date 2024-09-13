@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import FightCard from '../FightCard';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 function PushSearchRes() {
@@ -9,14 +9,18 @@ function PushSearchRes() {
 
 
     const [pushRes, setPushRes] = useState([])
+    console.log(pushRes)
+
 
     useEffect(() => {
 
         let pushSearchResFunction = async () => {
 
             try {
-                let pushResData = await axios.get('http://localhost:8000/api/admin/getallsubcategories')
+                // let pushResData = await axios.get('http://localhost:8000/api/admin/getallsubcategories')
+                let pushResData = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getallsubcategories')
                 setPushRes(pushResData.data.data)
+               
             }
             catch (error) {
                 console.error('Unable to fetch the All flight Details')

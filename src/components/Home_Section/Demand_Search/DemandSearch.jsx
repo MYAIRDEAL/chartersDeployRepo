@@ -28,9 +28,12 @@ const DemandSearch = () => {
     useEffect(() => {
         const sendData = async () => {
             try {
-                let response = await axios.post('http://localhost:8000/api/admin/demandsearch', parsedData);
+                // let response = await axios.post('http://localhost:8000/api/admin/demandsearch', parsedData);
+                let response = await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/demandsearch', parsedData);
                 setResponseData(response?.data?.data || []);
+                console.log('-------------------------------')
                 console.log(parsedData)
+                console.log('-------------------------------')
                 // message.success('Request successful');
             } catch (error) {
                 //  Handel this error silently

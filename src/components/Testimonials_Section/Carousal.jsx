@@ -12,7 +12,8 @@ function Carousal() {
   useEffect(() => {
     const fetchExperience = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/admin/getallfeedback');
+        // const response = await axios.get('http://localhost:8000/api/admin/getallfeedback');
+        const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getallfeedback');
         setCustomerExperience(response.data.feedback);
       } catch (error) {
         // Handle this error in Silently
@@ -44,7 +45,7 @@ function Carousal() {
                 <p className="text-[1.3rem] leading-7 text-gray-400 overflow-hidden">
                   {slide.feedback}
                 </p>
-                <RiDoubleQuotesR className="absolute w-[5rem] h-[5rem] z-5 top-6 left-1 text-hoverColor hidden md:flex" />
+                {/* <RiDoubleQuotesR className="absolute w-[5rem] h-[5rem] z-5 top-6 left-1 text-hoverColor hidden md:flex" /> */}
                 <div className="flex items-center justify-start md:mt-10">
                   <div className=" text-white  flex justify-center p-1 text-[2rem] h-[3rem] w-[3rem] rounded-full bg-hoverColor">
                     <h1 > {slide.name.slice(0,2)} </h1>

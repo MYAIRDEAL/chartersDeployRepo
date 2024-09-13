@@ -35,7 +35,8 @@ function ContactUsForm({ props }) {
         event.preventDefault();
 
         try {
-            await axios.post('http://localhost:8000/api/admin/addbooking', formData);
+            // await axios.post('http://localhost:8000/api/admin/addbooking', formData);
+            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
             setFormData({
                 name: '',
                 email: '',
@@ -58,7 +59,6 @@ function ContactUsForm({ props }) {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
         const year = date.getFullYear();
-
         return `${day}-${month}-${year}`;
     }
 
@@ -66,7 +66,7 @@ function ContactUsForm({ props }) {
     const formattedDate = formatDate(now);
 
     return (
-        <div className='w-[46rem]   flex justify-center flex-col'>
+        <div className='w-[40rem]   flex justify-center flex-col'>
             <div>
                 <h1 className='text-hoverColor tracking-[0.5rem] my-7 mx-4'>REQUEST A CALL BACK</h1>
                 <div>
@@ -79,7 +79,7 @@ function ContactUsForm({ props }) {
                                 name='name'
                                 // placeholder='Name'
                                 required
-                                className={` 344:w-[19rem] my-0  360:w-[19rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor`}
+                                className={` 344:w-[19rem] my-0  360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor`}
                                 onChange={handleChange}
                                 value={formData.name}
                             />
@@ -91,7 +91,7 @@ function ContactUsForm({ props }) {
                                 name='email'
                                 required
                                 // placeholder='Email'
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.email}
                             />
@@ -104,7 +104,7 @@ function ContactUsForm({ props }) {
                                 name='phone'
                                 required
                                 // placeholder='Phone'
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.phone}
                             />
@@ -117,7 +117,7 @@ function ContactUsForm({ props }) {
                                 name='type'
                                 required
                                 // placeholder='Mid Size'
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.type}
                             />
@@ -130,7 +130,7 @@ function ContactUsForm({ props }) {
                                 name='departure'
                                 required
                                 // placeholder='Departure'
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.departure}
                             />
@@ -143,7 +143,7 @@ function ContactUsForm({ props }) {
                                 name='arrival'
                                 required
                                 // placeholder='Arrival'
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.arrival}
                             />
@@ -157,7 +157,7 @@ function ContactUsForm({ props }) {
                                 name='date'
                                 required
                                 // placeholder={formattedDate}
-                                className='344:w-[19rem] my-0 360:w-[19rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.date}
                             />
@@ -169,7 +169,7 @@ function ContactUsForm({ props }) {
                                 name='passengers'
                                 required
                                 // placeholder='0'
-                                className='344:w-[19rem] my-0 360:w-[20.5rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
+                                className='344:w-[19rem] my-0 360:w-[17rem] mx-3 h-[3rem] outline-none border-b-2 border-hoverColor'
                                 onChange={handleChange}
                                 value={formData.passengers}
                             />

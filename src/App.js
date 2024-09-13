@@ -20,6 +20,7 @@ import OurFleetsDetails from './components/FleetsDetails';
 import DemandSearch from './components/Home_Section/Demand_Search/DemandSearch';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactusMain from './components/Forms/Enquiry_Forms/ContactusMain';
+import PushFleetDetails from './components/Home_Section/Push_Search/PushFleetDetails';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path='/ourfleetsdetails/:moredetails' element={<OurFleetsDetails />} />
           <Route path='/subcategory/:selecttype' element={<DemandSearch />} />
           <Route path='/testimonials' element={<TestimonialsPage />} />
+          <Route path='/fleetsdetails/:moredetails' element={<PushFleetDetails />} />
         </Routes>   
         <Footer />
       </Router>

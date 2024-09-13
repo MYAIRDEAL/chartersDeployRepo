@@ -4,14 +4,14 @@ const LearnMore = ()=> {
     return (
 
 
-        <div className=' flex items-center   bg-white py-[10rem]  flex-wrap justify-around'>
+        <div className=' flex items-center   bg-white 800:pb-10 pt-9 gap-2  flex-wrap justify-around'>
 
-            <div className=' w-full md:w-[20rem] flex flex-col px-6 md:mx-6 mt-6 '>
+            <div className=' w-full md:w-[19rem] flex flex-col px-6 md:mx-6 mt-6 '>
                 <div>
                     <h1 className='text-hoverColor text-xl tracking-widest '>OUR BENEFIT</h1>
                 </div>
                 <div>
-                    <h1 className='text-[3vw] md:w-[20rem]'>Learn More About Private Jet Benefits</h1>
+                    <h1 className='text-[2.6vw] md:w-[20rem]'>Learn More About Private Jet Benefits</h1>
                 </div>
                 <div>
                     <p className='text-gray-400'>
@@ -21,7 +21,7 @@ const LearnMore = ()=> {
 
             </div>
 
-            <div className=' w-[60rem] justify-around flex flex-wrap mb-[10rem]  md:mb-0'>
+            <div className=' w-[53rem] justify-around flex flex-wrap mb-[10rem]  md:mb-0'>
 
                 <div className=' w-[16rem] p-3 m-3'>
                     <div>

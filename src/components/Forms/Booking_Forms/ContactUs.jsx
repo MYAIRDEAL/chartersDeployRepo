@@ -27,7 +27,7 @@ function ContactUs() {
             <PageBanner data={'Contact Us'} />
 
             <div className='flex md:mt-[5rem] flex-wrap py-[5rem]  items-center justify-center'>
-                <div className=' w-[40rem] flex flex-col items-center justify-center  px-10 '>
+                <div className=' w-[35rem] flex flex-col items-center justify-center  px-5 '>
                     <div className='my-5'>
                         <h1 className='text-hoverColor text-[1.5rem]' >Phone Number</h1>
                         <p className='text-[1.1rem] text-gray-400'>

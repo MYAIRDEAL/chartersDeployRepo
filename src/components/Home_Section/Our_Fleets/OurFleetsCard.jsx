@@ -44,7 +44,6 @@ function OurFleetsCard({ props }) {
                 </Link>
             </div>
         </div>
-
     )
 }
 

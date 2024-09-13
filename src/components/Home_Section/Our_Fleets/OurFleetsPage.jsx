@@ -19,7 +19,8 @@ function OurFleetsPage() {
     useEffect(() => {
         let getSubCategory = async () => {
             try {
-                let temp = await axios.get(`http://localhost:8000/api/admin/filter/${type}`)
+                // let temp = await axios.get(`http://localhost:8000/api/admin/filter/${type}`)
+                let temp = await axios.get(`https://privatejetcharters-server-ttz1.onrender.com/api/admin/filter/${type}`)
                 // console.log(type)
                 setGetSubCategory(temp?.data?.sortedData || [])
             }

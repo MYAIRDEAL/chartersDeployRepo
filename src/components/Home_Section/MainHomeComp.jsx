@@ -20,7 +20,8 @@ function MainHomeComp() {
     useEffect(() => {
         const fetchComponents = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/components');
+                // const response = await axios.get('http://localhost:8000/api/components');
+                const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/components');
                 setComponents(response.data);
             } catch (error) {
                 message.error('Server Down To Switch Components');

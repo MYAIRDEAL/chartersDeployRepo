@@ -16,7 +16,8 @@ const LogUserActivity = () => {
                 const newLog = previousData + basePath;
                 
                 // Log the base path
-                axios.post('http://localhost:8000/api/admin/addlogs', { log: newLog })
+                // axios.post('http://localhost:8000/api/admin/addlogs', { log: newLog })
+                axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addlogs', { log: newLog })
                     .catch(() => {
                         // Handle error silently
                     });

@@ -23,9 +23,9 @@ function BlogContent() {
                 </p>
             </div>
 
-            <div className='mb-[10rem] flex flex-wrap justify-around items-center'>
+            <div className='mb-[10rem] flex flex-wrap justify-around items-center '>
 
-                <div className='w-[28rem] h-[40rem] flex justify-around  rounded-xl flex-col  m-4  shadow-lg p-3 '>
+                <div className='w-[26rem] h-[40rem] flex justify-around  rounded-xl flex-col  m-4  shadow-lg p-3 '>
                     <div className='m-3 hover:rotate-6 transition-all cursor-pointer duration-500'>
                         <img src={couples} alt="" />
                     </div>
@@ -54,7 +54,7 @@ function BlogContent() {
                 </div>
 
 
-                <div className='w-[28rem] h-[40rem] flex justify-around  rounded-xl flex-col  m-4  shadow-lg p-3 '>
+                <div className='w-[26rem] h-[40rem] flex justify-around  rounded-xl flex-col  m-4  shadow-lg p-3 '>
                     <div className='m-3 hover:rotate-6 transition-all cursor-pointer duration-500'>
                         <img src={lady} alt="" />
                     </div>
@@ -83,7 +83,7 @@ function BlogContent() {
                 </div>
 
 
-                <div className='w-[28rem] h-[40rem] flex justify-around  rounded-xl flex-col   m-4  shadow-lg p-3 '>
+                <div className='w-[26rem] h-[40rem] flex justify-around  rounded-xl flex-col   m-4  shadow-lg p-3 '>
                     <div className='m-3 hover:rotate-6 transition-all cursor-pointer duration-500'>
                         <img src={sofa} alt="" />
                     </div>
