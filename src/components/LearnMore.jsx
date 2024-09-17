@@ -1,12 +1,12 @@
 import React from 'react'
 
-const LearnMore = ()=> {
+const LearnMore = () => {
     return (
 
 
         <div className=' flex items-center   bg-white 800:pb-10 pt-9 gap-2  flex-wrap justify-around'>
 
-            <div className=' w-full md:w-[19rem] flex flex-col px-6 md:mx-6 mt-6 '>
+            <div className=' w-full 1200:w-[19rem] flex flex-col px-6 md:mx-6 mt-6 '>
                 <div>
                     <h1 className='text-hoverColor text-xl tracking-widest '>OUR BENEFIT</h1>
                 </div>
@@ -18,7 +18,6 @@ const LearnMore = ()=> {
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe culpa atque ex voluptatibus rem dolore, earum recusandae fugit. Vitae fugiat minus non nesciunt, optio dolor? Voluptatem, nisi quisquam mollitia vero iusto animi dolorem nobis.
                     </p>
                 </div>
-
             </div>
 
             <div className=' w-[53rem] justify-around flex flex-wrap mb-[10rem]  md:mb-0'>

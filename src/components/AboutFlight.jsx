@@ -1,13 +1,12 @@
 import React from 'react';
 import { FaSignature } from 'react-icons/fa';
-// import fram from '../assets/HeroBg.png';
 import fram from '../assets/HeroBg.png';
 import piolet from '../assets/F-1-1.jpg';
 import { Link } from 'react-router-dom';
 
 function AboutFlight() {
     return (
-        <div id="navHerSection" className="relative  w-[98.8vw] bg-fixed bg-cover bg-center py-[4rem]  bg-black" style={{ backgroundImage: `url(${fram})` }}>
+        <div id="navHerSection" className="relative  w-[98.8vw] overflow-hidden bg-fixed bg-cover bg-center py-[4rem]  bg-black" style={{ backgroundImage: `url(${fram})` }}>
             <div className="375:relative z-10 overflow-auto  md:flex  md:items-center md:justify-center  ">
                 <div className="flex flex-col 500:flex-row  items-center justify-center  500:justify-around p-4 md:p-8 relative z-10">
                     {/* Info section */}
@@ -45,7 +44,7 @@ function AboutFlight() {
                     </div> */}
 
                     {/* Image and text section */}
-                    <div className="flex flex-col 500:flex-row w-full  700:w-[100%] 1024:w-[80%] items-center md:ml-[8rem]">
+                    <div className="flex flex-col 500:flex-row w-full  700:w-[100%] 1024:w-[80%] items-center">
                         <div className="mb-4 md:mb-0">
                             <img src={piolet} alt="" className="w-full 768:w-[25rem] 500:w-[120rem] h-auto 700:h-[30rem] 700:w-[90rem] 500:h-[25rem] rounded-md" />
                         </div>

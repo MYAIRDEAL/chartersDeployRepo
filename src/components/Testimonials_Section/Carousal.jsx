@@ -41,7 +41,7 @@ function Carousal() {
               key={index}
               className={`absolute inset-0  flex items-center justify-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
-              <div className="md:w-[45rem] h-[25rem] flex flex-col justify-between p-3">
+              <div className="md:w-[45rem] h-auto flex flex-col justify-between p-3">
                 <p className="text-[1.3rem] leading-7 text-gray-400 overflow-hidden">
                   {slide.feedback}
                 </p>
