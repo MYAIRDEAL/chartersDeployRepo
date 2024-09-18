@@ -17,7 +17,6 @@ function NavBar() {
                     </Link>
                 </div>
 
-
                 {/* <div className='flex items-center justify-between'> */}
                 <div className='1024:hidden'>
                     <button className='text-white' onClick={() => {

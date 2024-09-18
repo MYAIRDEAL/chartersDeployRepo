@@ -72,7 +72,7 @@ function FightCard({ props }) {
                             <span className='line-through font-bold'> ${props?.price}</span>
                             <span className=' text-[1rem] font-semibold text-green-600 '> (upto {props?.discount}%) </span>
                         </h1>
-                        <Link to={`/fleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{page : currentLoc.pathname}} >
+                        <Link to={`/fleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{ page: currentLoc.pathname }} >
                             <button className='bg-hoverColor w-[8rem]  text-[0.9rem] font-semibold rounded-md p-2 h-[2.5rem]'>
                                 Book now
                             </button>
@@ -82,7 +82,6 @@ function FightCard({ props }) {
                 </div>
 
             </div>
-
 
         </div>
 
