@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
 
-    const [popUpMenu, setpopUpMenu] = useState(false)
+    const [popUpMenu, setpopUpMenu] = useState(false) 
 
     return (
         <nav className=' text-white'>
@@ -62,22 +62,34 @@ function NavBar() {
                 <div className='flex flex-col items-center py-4 space-y-4 bg-black'>
                     <ul className='space-y-2'>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/'}>Home</Link>
+                            <Link to={'/'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>Home</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/aboutus'}>About Us</Link>
+                            <Link to={'/aboutus'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>About Us</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/services'} > Services </Link>
+                            <Link to={'/services'} onClick={() => {
+                                setpopUpMenu(false)
+                            }} > Services </Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/packages'}> Packages </Link>
+                            <Link to={'/packages'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}> Packages </Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/blogs'}>Blogs</Link>
+                            <Link to={'/blogs'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>Blogs</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={`/contactusmain/contactuspage`} >Contact Us</Link>
+                            <Link to={`/contactusmain/contactuspage`} onClick={() => {
+                                setpopUpMenu(false)
+                            }} >Contact Us</Link>
                         </li>
                     </ul>
 

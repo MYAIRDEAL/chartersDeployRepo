@@ -52,6 +52,13 @@ function ContactUsFormMain() {
         event.preventDefault();
 
         try {
+
+
+            if (formData.enquiryphone.length !== 10) {
+                message.error('give phone number correctly')
+                return 1
+            }
+
             // await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
             await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             setFormData({

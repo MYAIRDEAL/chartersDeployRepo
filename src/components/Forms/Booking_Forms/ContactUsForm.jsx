@@ -33,9 +33,18 @@ function ContactUsForm({ props }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        // message.success('handled')
+
+        if (formData.enquiryphone.length !== 10) {
+            message.error('give phone number correctly')
+            return 1
+        }
 
         try {
             // await axios.post('http://localhost:8000/api/admin/addbooking', formData);
+
+
+
             await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
             setFormData({
                 name: '',

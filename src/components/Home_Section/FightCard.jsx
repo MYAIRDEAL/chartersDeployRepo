@@ -18,7 +18,7 @@ function FightCard({ props }) {
 
         <div className=' flex items-center justify-center flex-wrap gap-4'>
 
-            <div className='bg-white rounded-lg 600:w-[24rem] w-[22rem] shadow-2xl flex flex-col p-3'>
+            <div className='bg-white rounded-lg 1367:w-[25rem] 1200:w-[21rem] w-[22rem] shadow-2xl flex flex-col p-3'>
 
                 <div className='flex items-center justify-center'>
                     <h1 className='text-[1.5rem] font-bold text-hoverColor'> Legacy 300</h1>

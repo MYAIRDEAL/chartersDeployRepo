@@ -3,12 +3,18 @@ import React, { useEffect, useState } from 'react'
 
 
 
-import { RiArmchairLine } from "react-icons/ri";
-import { FaHelmetSafety } from "react-icons/fa6";
-import { TbBrandGithubCopilot } from "react-icons/tb";
-import { FaBagShopping } from "react-icons/fa6";
-import { IoIosSpeedometer } from "react-icons/io";
-import { IoIosPeople } from "react-icons/io";
+
+
+
+import Clock from '../../../assets/PushSearch/Clock.svg'
+import Team from '../../../assets/PushSearch/Team.svg'
+import Transfer from '../../../assets/PushSearch/Transfer.svg'
+import Sailor from '../../../assets/PushSearch/Sailor.svg'
+import Speed from '../../../assets/PushSearch/Speed.svg'
+import Safe_flight from '../../../assets/PushSearch/Safe_flight.svg'
+import Suitcases from '../../../assets/PushSearch/Suitcases.svg'
+import Group from '../../../assets/PushSearch/Group.svg'
+import Seat from '../../../assets/PushSearch/Seat.svg'
 
 // import PageBanner from './PageBanner';
 // import ContactUsForm from './Forms/Booking_Forms/ContactUsForm';
@@ -81,8 +87,8 @@ function PushFleetDetails() {
 
                         <div className='flex  gap-4 flex-wrap'>
                             <div className='flex gap-2 w-[13rem]'>
-
-                                <RiArmchairLine className='w-[1.5rem] h-[1.5rem]' />
+                            <img src={Seat} alt="" className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <RiArmchairLine className='w-[1.5rem] h-[1.5rem]' /> */}
                                 <h5>
                                     Seats :
                                 </h5>
@@ -95,7 +101,8 @@ function PushFleetDetails() {
 
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <TbBrandGithubCopilot className='w-[1.5rem] h-[1.5rem]' />
+                            <img src={Group} alt="" className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <TbBrandGithubCopilot className='w-[1.5rem] h-[1.5rem]' /> */}
                                 <h5>
                                     Crew :
                                 </h5>
@@ -106,7 +113,8 @@ function PushFleetDetails() {
 
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <FaBagShopping className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <FaBagShopping className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Suitcases} alt="" className='w-[1.5rem] h-[1.5rem]' />
                                 <h5>
                                     Baggage :
                                 </h5>
@@ -116,7 +124,8 @@ function PushFleetDetails() {
                             </div>
 
                             <div className='flex gap-2  w-[13rem]'>
-                                <FaHelmetSafety className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <FaHelmetSafety className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Safe_flight} alt="" className='w-[1.5rem] h-[1.5rem]' />
 
                                 <h5>
                                     YOM :
@@ -133,7 +142,8 @@ function PushFleetDetails() {
 
 
                             <div className='flex gap-2  w-[13rem]'>
-                                <IoIosSpeedometer className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <IoIosSpeedometer className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Speed} alt="" className='w-[1.5rem] h-[1.5rem]' />
                                 <h5>
                                     Speed :
                                 </h5>
@@ -143,7 +153,8 @@ function PushFleetDetails() {
                             </div>
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <IoIosPeople className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <IoIosPeople className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Sailor} alt="" className='w-[1.5rem] h-[1.5rem]' />
                                 <h5>
                                     Flight Attendent :
                                 </h5>
@@ -153,7 +164,8 @@ function PushFleetDetails() {
                             </div>
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <IoIosPeople className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <IoIosPeople className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Transfer} alt="" className='w-[1.5rem] h-[1.5rem]' />
                                 <h5>
                                     YOR :
                                 </h5>
@@ -163,7 +175,8 @@ function PushFleetDetails() {
                             </div>
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <IoIosPeople className='w-[1.5rem] h-[1.5rem]' />
+                                {/* <IoIosPeople className='w-[1.5rem] h-[1.5rem]' /> */}
+                                <img src={Team} alt="" className='w-[1.5rem] h-[1.5rem]' />
                                 <h5>
                                     Date Flexibility :
                                 </h5>
@@ -175,7 +188,8 @@ function PushFleetDetails() {
 
 
                             <div className='flex gap-2 w-[13rem]'>
-                                <IoIosPeople className='w-[1.5rem] h-[1.5rem]' />
+                                <img src={Clock} alt="" className='w-[1.5rem] h-[1.5rem]' />
+                           
                                 <h5>
                                     Total Travel Time :
                                 </h5>
