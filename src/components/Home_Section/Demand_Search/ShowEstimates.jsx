@@ -135,7 +135,7 @@ const ShowEstimates = () => {
 
     const onChange = (date) => {
         setSelectedDate(date);
-        
+
         // You can add any additional functionality here, e.g., formatting or logging the selected date
         setDate(date.format('DD-MM-YYYY'))
     };
@@ -148,7 +148,7 @@ const ShowEstimates = () => {
     return (
         <div className='  w-full py-[3rem] flex flex-col justify-center items-center'>
             <h1 className='md:text-[2.5rem] text-[1.5rem] text-white font-semibold'>Private Jet Charters</h1>
-            <div className=' w-[75%] font-semibold md:flex hidden flex-wrap gap-2'>
+            {/* <div className=' w-[80%] font-semibold md:flex hidden flex-wrap gap-2'>
                 {
                     getType?.length > 0 ? (
                         getType.map((e) => {
@@ -171,7 +171,7 @@ const ShowEstimates = () => {
                             <p className='text-hoverColor'>No Type Available</p>
                         )
                 }
-            </div>
+            </div> */}
 
             <div className='w-[80%] md:hidden flex flex-col relative' ref={dropdownRef}>
                 <div
@@ -215,39 +215,65 @@ const ShowEstimates = () => {
                 </div>
             </div>
 
-            <form action="#" method='post' className='bg-black my-3 rounded-xl' onSubmit={formHandler}>
-                <div className="form" >
-                    <div id='first'>
-                        <label htmlFor='from' className='flex gap-[10.7rem] pl-3 pt-1 text-white transform translate-y-[3px]'>
-                            <span>Departure</span> <span>Arrival</span></label>
-                        <div id='oneinnerdiv'>
-                            <input
-                                type='text'
-                                name='from'
-                                id='from'
-                                placeholder='Departure'
-                                value={fromValue} onChange={handleFromChange}
 
+            <dir className='flex flex-col'>
 
-                            />
+                <div className=' w-[80%] font-semibold md:flex hidden flex-wrap gap-2'>
+                    {
+                        getType?.length > 0 ? (
+                            getType.map((e) => {
+                                if (e.active.toLowerCase() === 'yes') {
+                                    return (
+                                        <button
+                                            className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
+                                            onClick={() => setSelectType(e.section)}
+                                            key={e._id}
+                                        >
+                                            {e.section}
+                                        </button>
+                                    );
+                                }
+                                return null;
+                            })
 
-                            <div id='icon'>
-                                <IoMdSwap onClick={handleSwap} className='cursor-pointer w-full h-full border-none outline-none' />
+                        ) :
+                            (
+                                <p className='text-hoverColor'>No Type Available</p>
+                            )
+                    }
+                </div>
+
+                <form action="#" method='post' className='md:bg-black my-3 rounded-xl' onSubmit={formHandler}>
+                    <div className="form" >
+                        <div id='first'>
+                            <label htmlFor='from' className='flex md:gap-[10.7rem] gap-[5rem] pl-3 pt-1 text-white transform translate-y-[3px]'>
+                                <span>Departure</span> <span>Arrival</span></label>
+                            <div id='oneinnerdiv'>
+                                <input
+                                    type='text'
+                                    name='from'
+                                    id='from'
+                                    placeholder='Departure'
+                                    value={fromValue} onChange={handleFromChange}
+                                />
+
+                                <div id='icon'>
+                                    <IoMdSwap onClick={handleSwap} className='cursor-pointer w-full h-full border-none outline-none' />
+                                </div>
+
+                                <input
+                                    type='text'
+                                    name='to'
+                                    id='to'
+                                    placeholder='Arrival'
+                                    value={toValue}
+                                    onChange={handleToChange}
+                                    className='pr-3'
+                                />
                             </div>
-
-                            <input
-                                type='text'
-                                name='to'
-                                id='to'
-                                placeholder='Arrival'
-                                value={toValue}
-                                onChange={handleToChange}
-                                className='pr-3'
-                            />
                         </div>
-                    </div>
 
-                    {/* <div className='second '>
+                        {/* <div className='second '>
                         <label htmlFor='departure' >Date</label>
                         <DatePicker
                             format='DD-MM-YYYY'
@@ -257,36 +283,37 @@ const ShowEstimates = () => {
                         />
                     </div> */}
 
-                    <div className='second '>
-                        <label htmlFor='departure' >Date</label>
-                        <DatePicker
-                            format='DD-MM-YYYY'
-                            id='date'
-                            value={selectedDate}
-                            onChange={onChange}
-                            disabledDate={(current) => current && current < dayjs().startOf('day')} // Disable previous dates
-                        />
-                    </div>
+                        <div className='second '>
+                            <label htmlFor='departure' >Date</label>
+                            <DatePicker
+                                format='DD-MM-YYYY'
+                                id='date'
+                                value={selectedDate}
+                                onChange={onChange}
+                                disabledDate={(current) => current && current < dayjs().startOf('day')} // Disable previous dates
+                            />
+                        </div>
 
-                    <div className='third'>
-                        <label htmlFor='passengers' >Passengers</label>
-                        <input
-                            type='number'
-                            name='passengers'
-                            value={passengers}
-                            placeholder='0'
-                            onChange={(e) => setPassengers(e.target.value)}
+                        <div className='third'>
+                            <label htmlFor='passengers' >Passengers</label>
+                            <input
+                                type='number'
+                                name='passengers'
+                                value={passengers}
+                                placeholder='0'
+                                onChange={(e) => setPassengers(e.target.value)}
 
-                        />
-                    </div>
+                            />
+                        </div>
 
-                    <div className='seven hover:scale-105  duration-200 ' >
-                        <button type='submit' className='tracking-[0.2rem] !h-[2.3rem] mt-[0.1rem]' >
-                            SEARCH
-                        </button>
+                        <div className='seven hover:scale-105  duration-200 ' >
+                            <button type='submit' className='tracking-[0.2rem] !h-[2.3rem] mt-[0.1rem]' >
+                                SEARCH
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </dir>
         </div>
     );
 };

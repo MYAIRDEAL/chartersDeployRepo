@@ -40,9 +40,9 @@ function Carousal() {
           {customerExperience.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0  flex items-center justify-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+              className={`absolute inset-0 py-4 flex items-center justify-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
-              <div className="md:w-[45rem] flex flex-col justify-between p-3 ">
+              <div className="md:w-[45rem] flex flex-col justify-between p-3">
                 <p className="text-[1.3rem] leading-7 text-gray-400 overflow-hidden py-10">
                   {slide.feedback.slice(0,400)}
                 </p>
