@@ -3,8 +3,13 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
+      screens: {
+        // Custom height-based media query for a minimum height of 415px
+        'max-h-415': { 'raw': '(max-height: 415px)' },
+      },
       colors: {
         hoverColor: '#D1AF77',
+        hoverLighColor: '#EFE3D0',
         selectType: '#1A1A1A',
         lable: '#D4B183',
         error: '#d4c583',
@@ -18,6 +23,7 @@ module.exports = {
         '400': '400px',
         '768': '768px',
         '800': '800px',
+        '1000': '1000px',
         '1024': '1024px',
         '1025': '1025px',
         '1200': '1200px',
@@ -30,6 +36,9 @@ module.exports = {
         '600': '600px',
         '1150': '1150px',
         '370': '370px',
+
+        // Custom height-based media query for 415px height
+        'h-415': { 'raw': '(max-height: 415px)' }, // Custom height-based breakpoint
       },
     },
   },

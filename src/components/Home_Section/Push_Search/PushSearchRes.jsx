@@ -1,40 +1,72 @@
 import React, { useEffect, useState } from 'react';
-
 import FightCard from '../FightCard';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { IoIosArrowDown } from "react-icons/io";
 
 function PushSearchRes() {
+    const [pushRes, setPushRes] = useState([]);
+    const [getType, setGetType] = useState([]);
+    const [selectType, setSelectType] = useState('AllTypes');
+    const [selectTypePopUp, setSelectTypePopUp] = useState(false);
+    const [getAllTypes, setGetAllTypes] = useState(false);
 
-
-
-    const [pushRes, setPushRes] = useState([])
-    console.log(pushRes)
-
-
+    // Fetch all subcategories on component mount
     useEffect(() => {
-
-        let pushSearchResFunction = async () => {
-
+        const fetchPushSearchRes = async () => {
             try {
-                // let pushResData = await axios.get('http://localhost:8000/api/admin/getallsubcategories')
-                let pushResData = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getallsubcategories')
-                setPushRes(pushResData.data.data)
-               
+                const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getallsubcategories');
+                setPushRes(response?.data?.data);
+            } catch (error) {
+                // handell in silently
             }
-            catch (error) {
-                console.error('Unable to fetch the All flight Details')
-            }
+        };
+        fetchPushSearchRes();
+    }, [getAllTypes]);
 
+    // Fetch all types on component mount
+    useEffect(() => {
+        const fetchAllTypes = async () => {
+            try {
+                const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getalltypes');
+                setGetType(response?.data?.data);
+            } catch (error) {
+                // handell in silently
+            }
+        };
+        fetchAllTypes();
+    }, []);
+
+    // Filter subcategories based on selected type
+    useEffect(() => {
+        const fetchFilteredSubcategories = async () => {
+            try {
+                const response = await axios.post(`http://localhost:8000/api/admin/filterSubCategoryByType/${selectType}`);
+                setPushRes(response?.data?.data);
+            } catch (error) {
+                // handell in silently
+            }
+        };
+
+        // Fetch data only when a specific type is selected
+        if (selectType !== 'AllTypes') {
+            fetchFilteredSubcategories();
+            setGetAllTypes(false)
         }
-        pushSearchResFunction()
+        else {
+            setGetAllTypes(true)
+        }
+    }, [selectType]);
 
-    }, [])
-
+    // Event handler to toggle type selection popup
+    const handleTypeClick = (type) => {
+        setSelectType(type);
+        setSelectTypePopUp(false); // Close popup after selecting type
+    };
 
     return (
-        <div className='bg-white   w-full p-[2rem]'>
-            <div className=' flex flex-col items-center justify-center '>
+        <div className='bg-white flex flex-col justify-center items-center w-full p-[2rem]'>
+            <div className='flex flex-col items-center justify-center'>
                 <h1 className='text-xl text-hoverColor mb-4'>
                     OUR LUXURY CHARTER
                 </h1>
@@ -48,35 +80,52 @@ function PushSearchRes() {
                 </div>
             </div>
 
-            <div className=' flex flex-wrap p-[2rem] gap-6 justify-center  items-center  '>
-
-
-                {
-                    pushRes?.length > 0? pushRes?.slice(0, 3).map((element, index) => (
-                        < FightCard key={index} props={element} />
+            {/* Type Selection Buttons */}
+            <div className='w-auto px-10 py-2 flex items-center font-medium justify-center bg-hoverColor bg-opacity-45 rounded-3xl flex-wrap gap-2'>
+                <button
+                    className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700 ${selectType === 'AllTypes' ? 'text-hoverColor' : 'text-black'}`}
+                    onClick={() => handleTypeClick('AllTypes')}
+                >
+                    All Types
+                </button>
+                {getType?.length > 0 ? (
+                    getType.map((e) => (
+                        e.active === 'yes' && (
+                            <button
+                                className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700 ${selectType === e.section ? 'text-hoverColor' : 'text-black'}`}
+                                onClick={() => handleTypeClick(e.section)}
+                                key={e._id}
+                            >
+                                {e.section}
+                            </button>
+                        )
                     ))
-                    :
-                    ''
-                }
-
-
+                ) : (
+                    <p className='text-black'>No Type Available</p>
+                )}
             </div>
 
-            {
-                // ### Here We doing Conditional Rendering ###
-                pushRes?.length > 3 ?
-                    (
-                        <div className='md:mt-5  flex   justify-end w-[94%]'>
-                            <button className='w-[12rem] h-[3rem] text-[1.1rem] tracking-[0.3rem] bg-hoverColor text-white rounded-lg transition-all hover:scale-110 duration-700'>
-                                <Link to={'/allavailablecharters'} >View More</Link>
-                            </button>
-                        </div>
-                    )
-                    : ''
-            }
+            {/* Display Fight Cards */}
+            <div className='flex flex-wrap p-[2rem] gap-6 justify-center items-center'>
+                {pushRes?.length > 0 ? (
+                    pushRes.slice(0, 3).map((element, index) => (
+                        <FightCard key={index} props={element} />
+                    ))
+                ) : (
+                    <p>No Data Available</p>
+                )}
+            </div>
+
+            {/* Conditional View More Button */}
+            {pushRes.length > 3 && (
+                <div className='md:mt-5 flex justify-end w-[94%]'>
+                    <button className='w-[12rem] h-[3rem] text-[1.1rem] tracking-[0.3rem] bg-hoverColor text-white rounded-lg transition-all hover:scale-110 duration-700'>
+                        <Link to={'/allavailablecharters'}>View More</Link>
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
 
 export default PushSearchRes;
-

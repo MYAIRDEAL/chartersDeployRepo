@@ -45,7 +45,7 @@ function AdminPanel() {
                 const response = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/components');
                 setComponents(response.data);
             } catch (error) {
-                console.error(error);
+                // handell in silently
             }
         };
 
@@ -61,14 +61,16 @@ function AdminPanel() {
         try {
             // const response = await axios.post('http://localhost:8000/api/components', updatedComponents);
             const response = await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/components', updatedComponents);
-            console.log(response.data);
+            
         } catch (error) {
-            console.error(error);
+            // handell in silently
         }
     };
 
     return (
         <div className='h-[100vh] flex flex-col items-center justify-evenly'>
+
+
             <h1 className='text-[2rem] text-center text-white'>Welcome to Admin Section Controller</h1>
             <DndProvider backend={HTML5Backend}>
                 <div className="AdminPanel">

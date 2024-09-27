@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { RiDoubleQuotesR } from 'react-icons/ri';
 import { message } from 'antd';
 import axios from 'axios';
+import '../../componentCss/Carousalcss.css'
 
 
 
@@ -35,13 +36,13 @@ function Carousal() {
   return (
     <div>
       <div className="relative 900:w-[55vw] w-[92vw] max-w-[1200px]  h-auto overflow-hidden rounded-lg">
-        <div className="relative w-full  h-[100vh] 700:h-[50vh] 900:h-[90vh] py-10 flex items-center justify-center">
+        <div className="relative w-full h-[100vh] 400:h-[60vh] 700:h-[60vh] 800:h-[40vh] 900:h-[70vh] 1000:h-[70vh]  py-10 flex items-center justify-center" id='carousalText'>
           {customerExperience.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0  flex items-center justify-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
-              <div className="md:w-[45rem]  flex flex-col justify-between p-3">
+              <div className="md:w-[45rem] flex flex-col justify-between p-3 ">
                 <p className="text-[1.3rem] leading-7 text-gray-400 overflow-hidden py-10">
                   {slide.feedback.slice(0,400)}
                 </p>

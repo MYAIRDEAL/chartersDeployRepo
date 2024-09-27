@@ -5,13 +5,13 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import { message } from 'antd';
 import axios from 'axios';
 import ErrorComp from '../../ErrorComp';
+import EnquiryPopUp from '../../EnquiryPopUp';
 
 
-const DemandSearch = () => {
+const DemandSearch = ({ temp, setTemp }) => {
 
 
-    let temp = useLocation()
-    console.log(temp.pathname.split('/')[1])
+    let location = useLocation()
 
     const { selecttype } = useParams();
 
@@ -19,8 +19,7 @@ const DemandSearch = () => {
     try {
         parsedData = JSON.parse(decodeURIComponent(selecttype));
     } catch (error) {
-        message.error('Error parsing data');
-        console.error('Parsing error:', error);
+        // handell in silently
     }
 
     const [responseData, setResponseData] = useState([]);
@@ -31,9 +30,7 @@ const DemandSearch = () => {
                 // let response = await axios.post('http://localhost:8000/api/admin/demandsearch', parsedData);
                 let response = await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/demandsearch', parsedData);
                 setResponseData(response?.data?.data || []);
-                console.log('-------------------------------')
-                console.log(parsedData)
-                console.log('-------------------------------')
+                
                 // message.success('Request successful');
             } catch (error) {
                 //  Handel this error silently
@@ -45,6 +42,10 @@ const DemandSearch = () => {
 
     return (
         <div className='bg-white'  >
+            <div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+                <EnquiryPopUp temp={temp} setTemp={setTemp} />
+            </div>
+
             <PageBanner data={'Sub Category'} />
 
             <div className=' mt-[2rem] ml-[2rem]'>

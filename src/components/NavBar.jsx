@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import heroicon from '../assets/Logo.png';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import EnquiryPopUp from './EnquiryPopUp';
 
-function NavBar() {
+function NavBar({ setTemp }) {
 
-    const [popUpMenu, setpopUpMenu] = useState(false) 
+    const [popUpMenu, setpopUpMenu] = useState(false)
+
+    let location = useLocation();
 
     return (
         <nav className=' text-white'>
@@ -33,7 +36,6 @@ function NavBar() {
                     </button>
                 </div>
 
-
                 {/* </div> */}
 
                 {/* Navigation Links */}
@@ -47,14 +49,16 @@ function NavBar() {
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/contactusmain/contactuspage'}>Contact Us</Link> </li>
                     </ul>
                 </div>
-
                 {/* Enquire Button */}
                 <div className='border hidden 1024:flex rounded-md border-hoverColor transition-transform transform duration-500 ease-in-out hover:scale-110 h-[3rem]  items-center justify-center text-hoverColor w-[10rem] hover:bg-hoverColor hover:text-white'>
-                    <button>
-                        <Link to={'/contactusmain/contactuspage'}>ENQUIRE NOW</Link>
+                    <button onClick={() => {
+                        setpopUpMenu(false)
+                        setTemp(true)
+                    }}>
+                        {/* <Link to={'/contactusmain/contactuspage'}>ENQUIRE NOW</Link> */}
+                        ENQUIRE NOW
                     </button>
                 </div>
-
             </div>
             {/* Mobile Menu */}
             <div className={`1024:hidden absolute z-30 w-[100%]  ${popUpMenu ? '' : 'hidden'}`}>
@@ -93,11 +97,15 @@ function NavBar() {
                     </ul>
 
                     <div className='border rounded-md border-hoverColor transition-transform transform duration-500 ease-in-out hover:scale-110 h-[3rem] flex items-center justify-center text-hoverColor w-[10rem] hover:bg-hoverColor hover:text-white'>
-                        <Link to={`/contactusmain/contactuspage`}>
-                            <button>
-                                ENQUIRE NOW
-                            </button>
-                        </Link>
+                        <button onClick={() => {
+                            setpopUpMenu(false)
+                            setTemp(true)
+                        }}>
+                            ENQUIRE NOW
+                            {/* <EnquiryPopUp /> */}
+
+                        </button>
+
                     </div>
                 </div>
             </div>

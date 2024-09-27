@@ -12,12 +12,18 @@ import { FaCarAlt } from "react-icons/fa";
 import AirportCount from '../components/AssertsCount';
 import LearnMore from '../components/LearnMore';
 import TellUs from '../components/TellUs';
+import EnquiryPopUp from '../components/EnquiryPopUp';
 
 
-function OurServicesPage() {
+function OurServicesPage({ temp, setTemp }) {
     return (
 
         <div className='bg-white '>
+
+            <div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+                <EnquiryPopUp temp={temp} setTemp={setTemp} />
+            </div>
+
 
 
             <PageBanner data={'Our Services'} />
@@ -111,7 +117,7 @@ function OurServicesPage() {
                         </div>
                     </div>
 
-                    
+
 
                     <div className='hover:bg-hoverColor  text-white cursor-pointer transition-all duration-500 h-[16rem] md:w-[23rem] m-3  rounded-md'>
                         <div>
@@ -134,11 +140,11 @@ function OurServicesPage() {
 
             {/* Section Two Ended */}
 
-            <AirportCount/>
+            <AirportCount />
 
-            <LearnMore/>
+            <LearnMore />
 
-            <TellUs/>
+            <TellUs />
 
 
 

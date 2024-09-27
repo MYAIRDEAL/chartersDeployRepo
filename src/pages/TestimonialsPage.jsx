@@ -5,11 +5,12 @@ import PageBanner from '../components/PageBanner';
 import axios from 'axios';
 import { message } from 'antd';
 import ErrorComp from '../components/ErrorComp';
+import EnquiryPopUp from '../components/EnquiryPopUp';
 
 
 
 
-function TestimonialsPage() {
+function TestimonialsPage({ temp, setTemp }) {
 
     const [showAllExp, setShowAllExp] = useState('');
 
@@ -31,6 +32,10 @@ function TestimonialsPage() {
 
         <div>
 
+<div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+                <EnquiryPopUp temp={temp} setTemp={setTemp} />
+            </div>
+
             <PageBanner data={'Testimonials'} />
 
             <div className='bg-white'>
@@ -51,7 +56,7 @@ function TestimonialsPage() {
                         showAllExp?.length > 0 ? showAllExp.map((element, index) => (
                             <div className='w-[20rem] m-5 border-[2px] border-hoverColor overflow-hidden  rounded-lg ' key={index}>
                                 <div>
-                                    <p className='text-gray-400 1487:text-[1.3rem] h-[10.5rem] overflow-hidden leading-[1.5rem] p-2 mb-0'>
+                                    <p className='text-gray-400 1487:text-[1.3rem] h-[11.2rem] overflow-hidden leading-[1.5rem] p-2 mb-0'>
                                         <i>
                                             {`" ${element.feedback} "`}   </i>{/* Max Char is 447 */}
                                     </p>

@@ -8,15 +8,16 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
 import PageBanner from '../../PageBanner';
 import ContactUsFormMain from './ContactUsFormMain';
+import EnquiryPopUp from '../../EnquiryPopUp';
 
-function ContactusMain() {
+function ContactusMain({ temp, setTemp }) {
     let decodedBookingData = null;
     let { detailsofbooking } = useParams()
     try {
         decodedBookingData = JSON.parse(decodeURIComponent(detailsofbooking))
     }
     catch (error) {
-        console.log(error)
+        // handell in silently
     }
 
     let { contactus } = useParams(); // Only destructure contactus if you don't need the booking data
@@ -30,6 +31,10 @@ function ContactusMain() {
     return (
 
         <div className='w-full  flex flex-col bg-white'>
+             <div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+                <EnquiryPopUp temp={temp} setTemp={setTemp} />
+            </div>
+
 
             {
                 isBanner == 'contactuspage' ? <PageBanner data={'Contact Us'} /> : ''
