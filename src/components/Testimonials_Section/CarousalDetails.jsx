@@ -12,7 +12,7 @@ function CarousalDetails() {
             </div>
             <div className='m-4'>
                 <h1 className='text-white 1487:text-[2.5rem]'>
-                    What Cllient Says About Flights
+                    What Client Says About Flights
                 </h1>
             </div>
             <div className='m-4'>

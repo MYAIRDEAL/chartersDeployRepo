@@ -11,23 +11,31 @@ import TotalTime from '../../assets/PushSearch/TotalTime.svg'
 import { Link, useLocation } from 'react-router-dom';
 
 function FightCard({ props }) {
-    // console.log(props)
+    
     let currentLoc = useLocation();
 
     return (
 
         <div className=' flex items-center justify-center flex-wrap gap-4'>
 
-            <div className='bg-white rounded-lg 600:w-[24rem] w-[22rem] shadow-2xl flex flex-col p-3'>
+            <div className='bg-white rounded-lg 1367:w-[24rem]  h-[16rem] 1200:w-[21rem] w-[21rem] shadow-2xl flex flex-col p-3'>
 
                 <div className='flex items-center justify-center'>
-                    <h1 className='text-[1.5rem] font-bold text-hoverColor'> Legacy 300</h1>
+                    <h1 className='text-[1.5rem] font-bold text-hoverColor'>
+                        {/* {props.subCategoryName} */}
+                        {props?.subCategoryName.length == 0 || props?.subCategoryName == 'undefined' ? 'No Info' : props?.subCategoryName}
+
+                    </h1>
                 </div>
 
                 <div className='flex  items-center justify-evenly my-3'>
                     <div className='flex flex-col items-center justify-center '>
                         <img src={flightakeoff} alt="" className='w-[1.5rem] my-1' />
-                        <h1>{props?.departure}</h1>
+                        <h1>
+                            {/* {props?.departure} */}
+                            {props?.departure.length == 0 || props?.departure == 'undefined' ? 'No Info' : props?.departure}
+
+                        </h1>
                     </div>
 
                     <div className=' flex flex-col items-center justify-center'>
@@ -37,24 +45,36 @@ function FightCard({ props }) {
                             <img src={rightArrow} alt="" />
                         </div>
                         <span className='font-normal'>
-                            {props?.date}
+                            {/* {props?.date} */}
+                            {props?.date.length == 0 || props?.date == 'undefined' ? 'No Info' : props?.date}
                         </span>
                     </div>
 
                     <div className='flex flex-col items-center justify-center '>
                         <img src={flighlanding} alt="" className='w-[1.5rem] my-1' />
-                        <h1>{props?.arrival}</h1>
+                        <h1>
+                            {/* {props?.arrival} */}
+
+                            {props?.arrival.length == 0 || props?.arrival == 'undefined' ? 'No Info' : props?.arrival}
+
+                        </h1>
                     </div>
                 </div>
 
                 <div className='flex justify-between items-center px-[2rem] my-1'>
                     <div className='flex pt-2 items-center'>
                         <img src={TotalTime} alt="" className='w-[1.8rem]' />
-                        <h1>{props?.duration}</h1>
+                        <h1 className='mb-3'>
+                            {/* {props?.duration} */}
+                            {props?.duration.length == 0 || props?.duration == 'undefined' ? 'No Info' : props?.duration}
+                        </h1>
                     </div>
                     <div className='flex gap-1'>
                         <img src={TotalPax} alt="" className='w-[1.4rem]' />
-                        <h1 className='mt-1'>Total Pax: {props?.pax}</h1>
+                        <h1 className='mt-3'>
+                            {/* Total Pax: {props?.pax} */}
+                            {props?.pax.length == 0 || props?.pax == 'undefined' ? 'No Info' : props?.pax + ' Per'}
+                        </h1>
                     </div>
                 </div>
 
@@ -69,10 +89,14 @@ function FightCard({ props }) {
 
                     <div className='flex  items-center  justify-between font-bold gap-10'>
                         <h1 className='text-red-700  px-2 text-[0.9rem] mt-2'>
-                            <span className='line-through font-bold'> ${props?.price}</span>
-                            <span className=' text-[1rem] font-semibold text-green-600 '> (upto {props?.discount}%) </span>
+                            <span className='line-through font-bold'>
+
+                                {props?.price.length == 0 || props?.price == 'undefined' ? 'No Info' : '$' + props?.price}
+
+                            </span>
+                            <span className=' text-[1rem] font-semibold text-green-600 '>  {props?.discount.length == 0 || props?.discount == 'undefined' ? 'No Info' : '(upto' + props?.discount + '% )'} </span>
                         </h1>
-                        <Link to={`/fleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{page : currentLoc.pathname}} >
+                        <Link to={`/ourfleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{ page: currentLoc.pathname }} >
                             <button className='bg-hoverColor w-[8rem]  text-[0.9rem] font-semibold rounded-md p-2 h-[2.5rem]'>
                                 Book now
                             </button>
@@ -82,7 +106,6 @@ function FightCard({ props }) {
                 </div>
 
             </div>
-
 
         </div>
 

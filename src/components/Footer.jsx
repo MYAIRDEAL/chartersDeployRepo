@@ -3,7 +3,7 @@ import React from "react";
 import { TfiLocationPin } from "react-icons/tfi";
 import { TbBrandGmail } from "react-icons/tb";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-
+import { RiTwitterXLine } from "react-icons/ri";
 
 
 const Footer = () => {
@@ -81,7 +81,7 @@ const Footer = () => {
                         <div className=" flex flex-wrap">
                             <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaFacebook />}</div>
                             <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaInstagram />}</div>
-                            <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaTwitter />}</div>
+                            <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<RiTwitterXLine />}</div>
                             <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaYoutube />}</div>
                         </div>
                     </div>

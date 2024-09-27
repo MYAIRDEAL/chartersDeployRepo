@@ -10,7 +10,7 @@ const Testimonials = () => {
     return (
         <div>
             <div
-                className='relative  w-full  bg-cover bg-center bg-fixed  py-[rem]  flex items-center justify-around flex-wrap'
+                className='relative  w-full  bg-cover bg-center bg-fixed  flex items-center justify-around flex-wrap'
                 style={{
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${Attentent})`
                 }}

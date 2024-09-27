@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 function DemandSearchCards({ props }) {
-    console.log(props)
+   
     const { _id, chartertype, subCategoryName, duration, reachdate, endtime, pax, speed, price, description, image, availability, bookingtype, departure, arrival, journeytype, date, yom, seats, crew, airhosts, levatory, fromtime, flyingrange, cabinwidth, cabinheight, baggage, cabinlength } = props;
 
 
@@ -29,7 +29,7 @@ function DemandSearchCards({ props }) {
         return toBeDate.format('ddd, DD MMM YYYY');
     }
 
-    console.log()
+   
 
 
     return (
@@ -44,24 +44,29 @@ function DemandSearchCards({ props }) {
                 <div className='hidden 700:flex'>
                     <p> {formatingDate(date, '-')}  </p>
                 </div>
-                <div className='flex 700:hidden  my-3 '>
+                <div className='flex 700:hidden   my-3 '>
                     <img src={calendar} alt="" className='w-[1rem] mr-[0.3rem] ' />
                     <span className=' flex items-center justify-center '>
                         {formatingDate(date, '-')}
                     </span>
                 </div>
                 <div >
-                    <h1>{fromtime}</h1>
+                    <h1>
+                        {fromtime.length == 0 || fromtime == 'undefined' ? 'No Info' : fromtime}
+                        {/* {fromtime} */}
+                    </h1>
                     <p>
-                        {departure}
+                        {departure.length == 0 || departure == 'undefined' ? 'No Info' : departure}
+                        {/* {departure} */}
                     </p>
                 </div>
 
             </div>
 
-            <div className='flex flex-col items-center' >
+            <div className='hidden 500:flex flex-col items-center' >
                 <h1 className='hidden 700:flex' >
-                    {duration}
+                    {duration.length == 0 || duration == 'undefined' ? 'No Info' : duration}
+                    {/* {duration} */}
                 </h1>
                 <div className='items-center hidden 370:flex justify-center '>
                     <img src={line} alt="" className='hidden 1150:flex' />
@@ -75,35 +80,39 @@ function DemandSearchCards({ props }) {
             </div>
 
 
-
             <div>
 
 
                 <div className='hidden 700:flex'>
-                    <p>{formatingDate(reachdate, '/')}</p>
+                    <p>{reachdate.length == 0 || reachdate == 'undefined' ? 'No Info' : formatingDate(reachdate, '/')}</p>
                 </div>
 
-                <div className='flex 700:hidden my-3 '>
+                <div className='flex 700:hidden my-3'>
                     <img src={time} alt="" className='w-[1rem] mr-[0.2rem] ' />
                     <span className='flex items-center justify-center '>
-                        {duration}
+                        {duration.length == 0 || duration == 'undefined' ? 'No Info' : duration}
+                        {/* {duration} */}
                     </span>
                 </div>
 
 
 
                 <div>
-                    <h1>{endtime}</h1>
+                    <h1>
+                        {endtime.length == 0 || endtime == 'undefined' ? 'No Info' : endtime}
+                        {/* {endtime} */}
+                    </h1>
                     <p>
-                        {arrival}
+                        {arrival.length == 0 || arrival == 'undefined' ? 'No Info' : arrival}
+                        {/* {arrival} */}
                     </p>
                 </div>
 
 
             </div>
 
-            <div className=' w-[100%] 600:w-auto  flex items-center justify-center'>
-                <Link to={`/ourfleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{page : 'subcategory'}}>
+            <div className=' w-[90%] 600:w-auto  flex items-center justify-center'>
+                <Link to={`/ourfleetsdetails/${encodeURIComponent(JSON.stringify(props))}`} state={{ page: 'subcategory' }}>
                     <button className='bg-white text-hoverColor font-semibold w-[13rem] 600:w-[10rem] h-[2.5rem] mx-2 rounded-lg hover:scale-105 transition-all duration-300'>
                         Book Now
                     </button>
@@ -112,11 +121,11 @@ function DemandSearchCards({ props }) {
             <div className='hidden 1024:flex flex-col items-center gap-1 justify-center'>
                 {/* <img src={seat} alt="" /> */}
                 <div className='flex'>
-                <PiSeatDuotone />
-                <PiSeatDuotone />
-                <PiSeatDuotone />
+                    <PiSeatDuotone />
+                    <PiSeatDuotone />
+                    <PiSeatDuotone />
                 </div>
-                <h1>Total seats : {seats}</h1>
+                <h1>Total Seats : {seats.length == 0 || seats == 'undefined' ? 'No Info' :  seats}</h1>
             </div>
 
         </div>

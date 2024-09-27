@@ -3,6 +3,17 @@ import axios from 'axios'
 import { message } from 'antd';
 
 function ContactUsForm({ props }) {
+
+    function formatDate(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+    }
+
+    const now = new Date();
+    const formattedDate = formatDate(now);
+
     const [formData, setFormData] = useState({
         name: localStorage.getItem('name') || '',
         email: localStorage.getItem('email') || '',
@@ -27,16 +38,22 @@ function ContactUsForm({ props }) {
     const handleChange = (event) => {
         setFormData({
             ...formData,
-            [event.target.name]: event.target.value,
+            [event?.target?.name]: event?.target?.value,
         });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        // message.success('handled')
+
+        if (formData?.phone?.length !== 10) {
+            message.error('give phone number correctly')
+            return 1
+        }
 
         try {
-            // await axios.post('http://localhost:8000/api/admin/addbooking', formData);
-            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
+            await axios.post('http://localhost:8000/api/admin/addbooking', formData);
+            // await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
             setFormData({
                 name: '',
                 email: '',
@@ -55,15 +72,6 @@ function ContactUsForm({ props }) {
     };
 
 
-    function formatDate(date) {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-        const year = date.getFullYear();
-        return `${day}-${month}-${year}`;
-    }
-
-    const now = new Date();
-    const formattedDate = formatDate(now);
 
     return (
         <div className='w-[40rem]   flex justify-center flex-col'>

@@ -1,0 +1,5 @@
+@media (max-height:415px) and (max-width:1000px) {
+    #carousalText {
+        height: 100vh;
+    }
+}

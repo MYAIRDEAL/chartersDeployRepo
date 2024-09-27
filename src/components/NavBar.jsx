@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import heroicon from '../assets/Logo.png';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import EnquiryPopUp from './EnquiryPopUp';
 
-function NavBar() {
+function NavBar({ setTemp }) {
 
     const [popUpMenu, setpopUpMenu] = useState(false)
+
+    let location = useLocation();
 
     return (
         <nav className=' text-white'>
@@ -16,7 +19,6 @@ function NavBar() {
                         <h1 className='text-[2rem] font-bold'>Book<span className='text-hoverColor'>Any</span>Jet</h1>
                     </Link>
                 </div>
-
 
                 {/* <div className='flex items-center justify-between'> */}
                 <div className='1024:hidden'>
@@ -34,7 +36,6 @@ function NavBar() {
                     </button>
                 </div>
 
-
                 {/* </div> */}
 
                 {/* Navigation Links */}
@@ -48,45 +49,63 @@ function NavBar() {
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/contactusmain/contactuspage'}>Contact Us</Link> </li>
                     </ul>
                 </div>
-
                 {/* Enquire Button */}
                 <div className='border hidden 1024:flex rounded-md border-hoverColor transition-transform transform duration-500 ease-in-out hover:scale-110 h-[3rem]  items-center justify-center text-hoverColor w-[10rem] hover:bg-hoverColor hover:text-white'>
-                    <button>
-                        <Link to={'/contactusmain/contactuspage'}>ENQUIRE NOW</Link>
+                    <button onClick={() => {
+                        setpopUpMenu(false)
+                        setTemp(true)
+                    }}>
+                        {/* <Link to={'/contactusmain/contactuspage'}>ENQUIRE NOW</Link> */}
+                        ENQUIRE NOW
                     </button>
                 </div>
-
             </div>
             {/* Mobile Menu */}
             <div className={`1024:hidden absolute z-30 w-[100%]  ${popUpMenu ? '' : 'hidden'}`}>
                 <div className='flex flex-col items-center py-4 space-y-4 bg-black'>
                     <ul className='space-y-2'>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/'}>Home</Link>
+                            <Link to={'/'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>Home</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/aboutus'}>About Us</Link>
+                            <Link to={'/aboutus'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>About Us</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/services'} > Services </Link>
+                            <Link to={'/services'} onClick={() => {
+                                setpopUpMenu(false)
+                            }} > Services </Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/packages'}> Packages </Link>
+                            <Link to={'/packages'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}> Packages </Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={'/blogs'}>Blogs</Link>
+                            <Link to={'/blogs'} onClick={() => {
+                                setpopUpMenu(false)
+                            }}>Blogs</Link>
                         </li>
                         <li className='hover:text-hoverColor cursor-pointer'>
-                            <Link to={`/contactusmain/contactuspage`} >Contact Us</Link>
+                            <Link to={`/contactusmain/contactuspage`} onClick={() => {
+                                setpopUpMenu(false)
+                            }} >Contact Us</Link>
                         </li>
                     </ul>
 
                     <div className='border rounded-md border-hoverColor transition-transform transform duration-500 ease-in-out hover:scale-110 h-[3rem] flex items-center justify-center text-hoverColor w-[10rem] hover:bg-hoverColor hover:text-white'>
-                        <Link to={`/contactusmain/contactuspage`}>
-                            <button>
-                                ENQUIRE NOW
-                            </button>
-                        </Link>
+                        <button onClick={() => {
+                            setpopUpMenu(false)
+                            setTemp(true)
+                        }}>
+                            ENQUIRE NOW
+                            {/* <EnquiryPopUp /> */}
+
+                        </button>
+
                     </div>
                 </div>
             </div>

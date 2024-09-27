@@ -8,7 +8,7 @@ function OurFleetsCard({ props }) {
         <div className=' w-[20rem] shadow-lg rounded-xl overflow-hidden'>
 
             <div>
-                <img src={props?.image} alt="" />
+                <img src={props?.image} alt="" className='   w-[25rem] h-[15rem]' />
             </div>
             <div className='p-3'>
                 <div className='my-3'>

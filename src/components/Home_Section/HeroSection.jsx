@@ -5,12 +5,16 @@ import frameplane from '../../assets/Png-2.png';
 import img2 from '../../assets/img2.png'
 import img3 from '../../assets/img3.png'
 
+
 // ### Icons from react Icons
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { RiTwitterXLine } from "react-icons/ri";
+
 
 // ### Import this comp Css
 import '../../componentCss/HeroSectioncss.css'
 import { Link } from 'react-router-dom';
+import ContactUsFormMain from '../Forms/Enquiry_Forms/ContactUsFormMain';
 
 
 function HeroSection() {
@@ -33,7 +37,10 @@ function HeroSection() {
     }, [customerExperience?.length]);
 
     return (
-        <>
+        <div>
+
+
+
 
             <div>
                 <div className="relative w-full md:h-[90vh] h-[50vh]  overflow-hidden rounded-lg">
@@ -51,7 +58,7 @@ function HeroSection() {
 
 
                                             <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaInstagram />}</div>
-                                            <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<FaTwitter />}</div>
+                                            <div className='border border-hoverColor m-2 p-2 rounded-full hover:bg-hoverColor cursor-pointer text-xl'>{<RiTwitterXLine />}</div>
 
 
                                             <Link to={'https://www.linkedin.com/company/my-air-deal/mycompany/'} target='_blank' >
@@ -70,7 +77,7 @@ function HeroSection() {
                                                 <span className='text-hoverColor text-xl block md:inline'>Welcome </span>
                                                 to Flights
                                             </div> */}
-                                            <div className='text-[4vw] m-4'>
+                                            <div className='text-[4vw] m-4 mt-10'>
                                                 <h1 className='leading-none transition-all duration-700'>
                                                     Private <span className='text-hoverColor transition-all duration-700 ease-in-out'> {slide.name} </span> with Global Coverage
                                                 </h1>
@@ -93,7 +100,7 @@ function HeroSection() {
             </div>
 
 
-        </>
+        </div>
     );
 }
 

@@ -52,8 +52,15 @@ function ContactUsFormMain() {
         event.preventDefault();
 
         try {
-            // await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
-            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
+
+
+            if (formData.enquiryphone.length !== 10) {
+                message.error('give phone number correctly')
+                return 1
+            }
+
+            await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
+            // await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             setFormData({
                 enquiryname: '',
                 enquiryemail: '',
@@ -87,7 +94,7 @@ function ContactUsFormMain() {
                                 className={` 344:w-[19rem] my-0  360:w-[17rem] mx-3 h-[3rem]  outline-none border-b-2 border-hoverColor`}
                                 onChange={handleChange}
                                 value={formData.enquiryname}
-                                x />
+                                 />
                         </div>
 
                         <div className='flex flex-col my-1'>

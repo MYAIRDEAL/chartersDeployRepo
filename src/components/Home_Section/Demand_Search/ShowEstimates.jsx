@@ -6,14 +6,14 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiFlightTakeoffFill } from "react-icons/ri";
 import '../../../componentCss/ShowEstimatesCss.css'
 import axios from 'axios';
+// import { DatePicker } from 'antd';
+import dayjs from 'dayjs';
 
 import { useNavigate } from 'react-router-dom'; // Import correctly
 
 const ShowEstimates = () => {
     const [dateData, setDate] = useState(localStorage.getItem('dateData') || '');
-    const onChange = (date, dateString) => {
-        setDate(dateString);
-    };
+
 
     const [fromValue, setFromValue] = useState(localStorage.getItem('fromvalue') || '');
     const [toValue, setToValue] = useState(localStorage.getItem('tovalue') || '');
@@ -77,6 +77,8 @@ const ShowEstimates = () => {
         let section = selectType;
 
         let postData = { arrival, departure, pax, date, section };
+        console.log(date)
+
 
         if (arrival?.length !== 0 && departure?.length !== 0 && pax?.length !== 0 && date?.length !== 0 && section?.length !== 0) {
             setFormData(postData);
@@ -104,7 +106,7 @@ const ShowEstimates = () => {
                     navigate(`/subcategory/${encodedData}`); // Passing encoded data in URL
 
                 } catch (error) {
-                    console.error('Server is Busy try after some time');
+                    // handell in silently
                 }
             }
         };
@@ -121,12 +123,27 @@ const ShowEstimates = () => {
                 let temp = await axios.get('https://privatejetcharters-server-ttz1.onrender.com/api/admin/getalltypes');
                 setGetType(temp.data?.data || []);
             } catch (error) {
-                console.error('Server is Busy try after some time');
+                // handell in silently
             }
         };
 
         fetchData();
     }, [])
+
+
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const onChange = (date) => {
+        setSelectedDate(date);
+        
+        // You can add any additional functionality here, e.g., formatting or logging the selected date
+        setDate(date.format('DD-MM-YYYY'))
+    };
+
+    // const onChange = (date, dateString) => {
+    //     setDate(dateString);
+    // };
+
 
     return (
         <div className='  w-full py-[3rem] flex flex-col justify-center items-center'>
@@ -135,10 +152,10 @@ const ShowEstimates = () => {
                 {
                     getType?.length > 0 ? (
                         getType.map((e) => {
-                            if (e.active === 'yes') {
+                            if (e.active.toLowerCase() === 'yes') {
                                 return (
                                     <button
-                                        className={`w-[25vh] h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
+                                        className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
                                         onClick={() => setSelectType(e.section)}
                                         key={e._id}
                                     >
@@ -174,7 +191,7 @@ const ShowEstimates = () => {
                             getType?.length > 0 ? (
                                 getType.map((element, index) => {
 
-                                    if (element.active === 'yes') {
+                                    if (element.active.toLowerCase() === 'yes') {
                                         return (
                                             <li
                                                 className={`text-[1.2rem] transition-all duration-300 text-white py-2 pl-5 ${selectType === `${element.section}` ? 'bg-hoverColor' : ''}`}
@@ -198,39 +215,56 @@ const ShowEstimates = () => {
                 </div>
             </div>
 
-            <form action="#" method='post' onSubmit={formHandler}>
-                <div className="form  " >
+            <form action="#" method='post' className='bg-black my-3 rounded-xl' onSubmit={formHandler}>
+                <div className="form" >
                     <div id='first'>
-                        <label htmlFor='from' className='flex gap-4 text-white'>Departure {<RiFlightTakeoffFill />} Arrival</label>
+                        <label htmlFor='from' className='flex gap-[10.7rem] pl-3 pt-1 text-white transform translate-y-[3px]'>
+                            <span>Departure</span> <span>Arrival</span></label>
                         <div id='oneinnerdiv'>
                             <input
                                 type='text'
                                 name='from'
                                 id='from'
-                                placeholder='VOBL'
+                                placeholder='Departure'
                                 value={fromValue} onChange={handleFromChange}
+
+
                             />
 
-                            <IoMdSwap id='icon' onClick={handleSwap} className='cursor-pointer border-none outline-none' />
+                            <div id='icon'>
+                                <IoMdSwap onClick={handleSwap} className='cursor-pointer w-full h-full border-none outline-none' />
+                            </div>
 
                             <input
                                 type='text'
                                 name='to'
                                 id='to'
-                                placeholder='OMDW'
+                                placeholder='Arrival'
                                 value={toValue}
                                 onChange={handleToChange}
+                                className='pr-3'
                             />
                         </div>
                     </div>
 
-                    <div className='second '>
+                    {/* <div className='second '>
                         <label htmlFor='departure' >Date</label>
                         <DatePicker
                             format='DD-MM-YYYY'
                             id='date'
                             // value={dateData}
                             onChange={onChange}
+                        />
+                    </div> */}
+
+                    <div className='second '>
+                        <label htmlFor='departure' >Date</label>
+                        <DatePicker
+                            format='DD-MM-YYYY'
+                            id='date'
+                            value={selectedDate}
+                            onChange={onChange}
+                            disabledDate={(current) => current && current < dayjs().startOf('day')} // Disable previous dates
                         />
                     </div>
 
@@ -247,7 +281,7 @@ const ShowEstimates = () => {
                     </div>
 
                     <div className='seven hover:scale-105  duration-200 ' >
-                        <button type='submit' className='tracking-[0.2rem]' >
+                        <button type='submit' className='tracking-[0.2rem] !h-[2.3rem] mt-[0.1rem]' >
                             SEARCH
                         </button>
                     </div>

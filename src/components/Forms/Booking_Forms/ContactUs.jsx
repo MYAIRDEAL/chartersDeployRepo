@@ -7,24 +7,31 @@ import { FaLocationDot } from "react-icons/fa6";
 import ContactUsForm from './ContactUsForm';
 import { useParams } from 'react-router-dom';
 import PageBanner from '../../PageBanner';
+import EnquiryPopUp from '../../EnquiryPopUp';
 
-function ContactUs() {
+function ContactUs({ temp, setTemp }) {
     let decodedBookingData = null;
     let { detailsofbooking } = useParams()
     try {
         decodedBookingData = JSON.parse(decodeURIComponent(detailsofbooking))
+        
     }
     catch (error) {
-        console.log(error)
+        // handell in silently
     }
 
     return (
 
         <div className='w-full   flex flex-col  bg-white'>
 
+<div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+                <EnquiryPopUp temp={temp} setTemp={setTemp} />
+            </div>
 
 
-            <PageBanner data={'Contact Us'} />
+            {
+                decodedBookingData.pageName === 'PushSearch' ? '' : <PageBanner data={'Contact Us'} />
+            }
 
             <div className='flex md:mt-[5rem] flex-wrap py-[5rem]  items-center justify-center'>
                 <div className=' w-[35rem] flex flex-col items-center justify-center  px-5 '>
