@@ -90,7 +90,7 @@ function PushSearchRes() {
                 </button>
                 {getType?.length > 0 ? (
                     getType.map((e) => (
-                        e.active === 'yes' && (
+                        e.active.toLowerCase() === 'yes' && (
                             <button
                                 className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700 ${selectType === e.section ? 'text-hoverColor' : 'text-black'}`}
                                 onClick={() => handleTypeClick(e.section)}
