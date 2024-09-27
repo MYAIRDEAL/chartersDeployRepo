@@ -77,6 +77,8 @@ const ShowEstimates = () => {
         let section = selectType;
 
         let postData = { arrival, departure, pax, date, section };
+        console.log(date)
+
 
         if (arrival?.length !== 0 && departure?.length !== 0 && pax?.length !== 0 && date?.length !== 0 && section?.length !== 0) {
             setFormData(postData);
@@ -150,7 +152,7 @@ const ShowEstimates = () => {
                 {
                     getType?.length > 0 ? (
                         getType.map((e) => {
-                            if (e.active === 'yes') {
+                            if (e.active.toLowerCase() === 'yes') {
                                 return (
                                     <button
                                         className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg text-white transition-all duration-700 ${selectType === e.section ? 'bg-hoverColor text-white' : 'border-2 border-hoverColor'}`}
@@ -189,7 +191,7 @@ const ShowEstimates = () => {
                             getType?.length > 0 ? (
                                 getType.map((element, index) => {
 
-                                    if (element.active === 'yes') {
+                                    if (element.active.toLowerCase() === 'yes') {
                                         return (
                                             <li
                                                 className={`text-[1.2rem] transition-all duration-300 text-white py-2 pl-5 ${selectType === `${element.section}` ? 'bg-hoverColor' : ''}`}

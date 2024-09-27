@@ -22,10 +22,8 @@ function ContactUsForm({ props }) {
         departure: props?.departure || localStorage.getItem('departure') || 'Departure',
         arrival: props?.arrival || localStorage.getItem('arrival') || 'Arrival',
         passengers: props?.passengers || localStorage.getItem('passengers') || '1',
-        date: formattedDate || localStorage.getItem('date') || '21-09-2023'
+        date: props?.date || localStorage.getItem('date') || '21-09-2023'
     });
-
-
 
 
     useEffect(() => {
