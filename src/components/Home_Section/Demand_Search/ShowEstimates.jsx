@@ -133,11 +133,21 @@ const ShowEstimates = () => {
 
     const [selectedDate, setSelectedDate] = useState(null);
 
-    const onChange = (date) => {
-        setSelectedDate(date);
+    // const onChange = (date) => {
+    //     setSelectedDate(date);
 
-        // You can add any additional functionality here, e.g., formatting or logging the selected date
-        setDate(date.format('DD-MM-YYYY'))
+    //     // You can add any additional functionality here, e.g., formatting or logging the selected date
+    //     setDate(date.format('DD-MM-YYYY'))
+    // };
+
+    const onChange = (date) => {
+        if (date) {
+            setSelectedDate(date);
+            setDate(date.format('DD-MM-YYYY')); // Format only if the date is not null
+        } else {
+            setSelectedDate(null);
+            setDate(''); // Clear the date state if the DatePicker is cleared
+        }
     };
 
     // const onChange = (date, dateString) => {
