@@ -34,21 +34,21 @@ function Carousal() {
  
 
   return (
-    <div>
-      <div className="relative 900:w-[55vw] w-[92vw] max-w-[1200px]  h-auto overflow-hidden rounded-lg">
-        <div className="relative w-full h-[100vh] 400:h-[60vh] 700:h-[60vh] 800:h-[40vh] 900:h-[70vh] 1000:h-[70vh]  py-10 flex items-center justify-center" id='carousalText'>
+    <div >
+      <div className="relative 900:w-[55vw]  w-[92vw] max-w-[1200px]  h-auto overflow-hidden rounded-lg">
+        <div className="relative w-full min-h-[65vh] 400:h-[60vh] 700:h-[60vh] 800:h-[40vh] 900:h-[70vh] 1000:h-[70vh]  py-10 flex items-center justify-center" id='carousalText'>
           {customerExperience.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0 py-4 flex items-center justify-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
-              <div className="md:w-[45rem] flex flex-col justify-between p-3">
-                <p className="text-[1.3rem] leading-7 text-gray-400 overflow-hidden py-10">
+              <div className="md:w-[45rem] flex flex-col justify-between">
+                <p className="text-[1.1rem] leading-7 text-gray-400 overflow-hidden px-2 py-10">
                   {slide.feedback.slice(0,400)}
                 </p>
                 {/* <RiDoubleQuotesR className="absolute w-[5rem] h-[5rem] z-5 top-6 left-1 text-hoverColor hidden md:flex" /> */}
-                <div className="flex  pb-7">
-                  <div className=" text-white  flex justify-center p-1 text-[2rem] h-[3rem] w-[3rem] rounded-full bg-hoverColor">
+                <div className="flex pb-7">
+                  <div className=" text-white  flex justify-center p-1 text-[1.6rem] h-[2.5rem] w-[2.5rem] rounded-full bg-hoverColor">
                     <h1 > {slide.name.slice(0,2)} </h1>
                   </div>
                   <div className="ml-5 text-white">

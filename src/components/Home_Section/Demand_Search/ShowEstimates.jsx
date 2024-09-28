@@ -133,12 +133,7 @@ const ShowEstimates = () => {
 
     const [selectedDate, setSelectedDate] = useState(null);
 
-    // const onChange = (date) => {
-    //     setSelectedDate(date);
 
-    //     // You can add any additional functionality here, e.g., formatting or logging the selected date
-    //     setDate(date.format('DD-MM-YYYY'))
-    // };
 
     const onChange = (date) => {
         if (date) {
@@ -150,9 +145,6 @@ const ShowEstimates = () => {
         }
     };
 
-    // const onChange = (date, dateString) => {
-    //     setDate(dateString);
-    // };
 
 
     return (
