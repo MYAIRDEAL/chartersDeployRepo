@@ -36,7 +36,7 @@ function Carousal() {
   return (
     <div >
       <div className="relative 900:w-[55vw]  w-[92vw] max-w-[1200px]  h-auto overflow-hidden rounded-lg">
-        <div className="relative w-full min-h-[65vh] 400:h-[60vh] 700:h-[60vh] 800:h-[40vh] 900:h-[70vh] 1000:h-[70vh]  py-10 flex items-center justify-center" id='carousalText'>
+        <div className="relative w-full min-h-[65vh] 400:min-h-[60vh] 700:min-h-[60vh] 800:h-[40vh] 900:min-h-[70vh] 1000:min-h-[70vh]  py-10 flex items-center justify-center" id='carousalText'>
           {customerExperience.map((slide, index) => (
             <div
               key={index}
@@ -44,7 +44,7 @@ function Carousal() {
             >
               <div className="md:w-[45rem] flex flex-col justify-between">
                 <p className="text-[1.1rem] leading-7 text-gray-400 overflow-hidden px-2 py-10">
-                  {slide.feedback.slice(0,400)}
+                  {slide.feedback.slice(0,350) + '...'}
                 </p>
                 {/* <RiDoubleQuotesR className="absolute w-[5rem] h-[5rem] z-5 top-6 left-1 text-hoverColor hidden md:flex" /> */}
                 <div className="flex pb-7">
