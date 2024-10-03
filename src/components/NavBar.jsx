@@ -44,7 +44,7 @@ function NavBar({ setTemp }) {
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/'}>Home</Link> </li>
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '><Link to={'/aboutus'}>About Us</Link></li>
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/services'} > Services </Link> </li>
-                        <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/packages'}> Packages </Link> </li>
+                        {/* <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/packages'}> Packages </Link> </li> */}
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/blogs'}>Blogs</Link> </li>
                         <li className='hover:text-hoverColor cursor-pointer hover:scale-105 transition-all duration-200 '> <Link to={'/contactusmain/contactuspage'}>Contact Us</Link> </li>
                     </ul>
@@ -79,11 +79,11 @@ function NavBar({ setTemp }) {
                                 setpopUpMenu(false)
                             }} > Services </Link>
                         </li>
-                        <li className='hover:text-hoverColor cursor-pointer'>
+                        {/* <li className='hover:text-hoverColor cursor-pointer'>
                             <Link to={'/packages'} onClick={() => {
                                 setpopUpMenu(false)
                             }}> Packages </Link>
-                        </li>
+                        </li> */}
                         <li className='hover:text-hoverColor cursor-pointer'>
                             <Link to={'/blogs'} onClick={() => {
                                 setpopUpMenu(false)

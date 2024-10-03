@@ -102,7 +102,7 @@ function App() {
           <Route path="/" element={<MainHomeComp temp={temp} setTemp={setTemp} />} />
           <Route path='/aboutus' element={<AboutUs temp={temp} setTemp={setTemp}  />} />
           <Route path='/services' element={<OurServicesPage temp={temp} setTemp={setTemp}  />} />
-          <Route path='/packages' element={<PackagePage temp={temp} setTemp={setTemp}  />} />
+          {/* <Route path='/packages' element={<PackagePage temp={temp} setTemp={setTemp}  />} /> */}
           <Route path='/blogs' element={<Blog  temp={temp} setTemp={setTemp} />} />
           <Route path='/adminsectioncontroller' element={<AdminPanel />} />
           <Route path='/contactus/:detailsofbooking' element={<ContactUs temp={temp} setTemp={setTemp}  />} />
