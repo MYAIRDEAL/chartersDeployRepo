@@ -52,8 +52,8 @@ function ContactUsForm({ props }) {
         }
 
         try {
-            await axios.post('http://localhost:8000/api/admin/addbooking', formData);
-            // await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
+            // await axios.post('http://localhost:8000/api/admin/addbooking', formData);
+            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addbooking', formData);
             setFormData({
                 name: '',
                 email: '',

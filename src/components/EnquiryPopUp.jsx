@@ -60,8 +60,8 @@ const EnquiryPopUp = (props) => {
                 return 1
             }
 
-            await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
-            // await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
+            // await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
+            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             setTemp(false)
             setFormData({
                 enquiryname: '',

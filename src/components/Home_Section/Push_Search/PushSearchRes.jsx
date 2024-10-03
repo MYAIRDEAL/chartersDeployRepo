@@ -41,9 +41,10 @@ function PushSearchRes() {
     useEffect(() => {
         const fetchFilteredSubcategories = async () => {
             try {
-                const response = await axios.post(`http://localhost:8000/api/admin/filterSubCategoryByType/${selectType}`);
+                const response = await axios.post(`https://privatejetcharters-server-ttz1.onrender.com/api/admin/filterSubCategoryByType/${selectType}`);
                 setPushRes(response?.data?.data);
             } catch (error) {
+                setPushRes('')
                 // handell in silently
             }
         };
@@ -112,7 +113,7 @@ function PushSearchRes() {
                         <FightCard key={index} props={element} />
                     ))
                 ) : (
-                    <p>No Data Available</p>
+                    <h1>No Data Available</h1>
                 )}
             </div>
 
