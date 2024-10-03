@@ -4,7 +4,6 @@ import PageBanner from '../../PageBanner'
 import OurFleetsCard from './OurFleetsCard'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
-import ErrorComp from '../../ErrorComp'
 import EnquiryPopUp from '../../EnquiryPopUp'
 
 
@@ -57,7 +56,7 @@ function OurFleetsPage({ temp, setTemp }) {
                         <OurFleetsCard key={index} props={element} />
                     ))
                         :
-                        <ErrorComp />
+                        <h1>No Data Found</h1>
                 }
             </div>
 

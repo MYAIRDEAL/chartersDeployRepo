@@ -4,7 +4,6 @@ import PageBanner from '../../PageBanner';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { message } from 'antd';
 import axios from 'axios';
-import ErrorComp from '../../ErrorComp';
 import EnquiryPopUp from '../../EnquiryPopUp';
 
 
@@ -67,7 +66,7 @@ const DemandSearch = ({ temp, setTemp }) => {
                         <DemandSearchCards key={index} props={element} />
                     ))
                 ) : (
-                    <ErrorComp />
+                    <h1>No Data Found</h1>
                 )}
             </div>
         </div>

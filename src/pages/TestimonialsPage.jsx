@@ -4,7 +4,6 @@ import { FcBusinessman } from "react-icons/fc";
 import PageBanner from '../components/PageBanner';
 import axios from 'axios';
 import { message } from 'antd';
-import ErrorComp from '../components/ErrorComp';
 import EnquiryPopUp from '../components/EnquiryPopUp';
 
 
@@ -32,7 +31,7 @@ function TestimonialsPage({ temp, setTemp }) {
 
         <div>
 
-<div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
+            <div className=' absolute z-50 right-0 border-[1px] cursor-pointer mt-2 mr-5 border-hoverColor rounded-lg '>
                 <EnquiryPopUp temp={temp} setTemp={setTemp} />
             </div>
 
@@ -72,7 +71,7 @@ function TestimonialsPage({ temp, setTemp }) {
                             </div>
                         ))
                             :
-                            <ErrorComp />
+                            <h1>No Data Found</h1>
 
                     }
 

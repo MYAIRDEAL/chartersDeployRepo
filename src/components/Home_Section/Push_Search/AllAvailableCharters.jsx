@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FightCard from '../FightCard';
 import axios from 'axios';
-import ErrorComp from '../../ErrorComp';
 import { Link } from 'react-router-dom';
 import EnquiryPopUp from '../../EnquiryPopUp';
 
