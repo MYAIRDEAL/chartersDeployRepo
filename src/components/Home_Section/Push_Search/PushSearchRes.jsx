@@ -41,7 +41,7 @@ function PushSearchRes() {
     useEffect(() => {
         const fetchFilteredSubcategories = async () => {
             try {
-                const response = await axios.post(`http://localhost:8000/api/admin/filterSubCategoryByType/${selectType}`);
+                const response = await axios.post(`https://privatejetcharters-server-ttz1.onrender.com/api/admin/filterSubCategoryByType/${selectType}`);
                 setPushRes(response?.data?.data);
             } catch (error) {
                 // handell in silently
