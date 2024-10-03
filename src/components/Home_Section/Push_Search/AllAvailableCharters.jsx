@@ -53,9 +53,14 @@ function AllAvailableCharters({ temp, setTemp }) {
 
         if (selectType !== 'AllTypes') {
             fetchFilteredSubcategories();
-            setGetAllTypes(false);
+            // setGetAllTypes(false);
         } else {
-            setGetAllTypes(true);
+            if (getAllTypes) {
+                setGetAllTypes(false);
+            }
+            else {
+                setGetAllTypes(true);
+            }
         }
     }, [selectType]);
 

@@ -52,10 +52,14 @@ function PushSearchRes() {
         // Fetch data only when a specific type is selected
         if (selectType !== 'AllTypes') {
             fetchFilteredSubcategories();
-            setGetAllTypes(false)
         }
         else {
-            setGetAllTypes(true)
+            if (getAllTypes) {
+                setGetAllTypes(false)
+            }
+            else {
+                setGetAllTypes(true)
+            }
         }
     }, [selectType]);
 

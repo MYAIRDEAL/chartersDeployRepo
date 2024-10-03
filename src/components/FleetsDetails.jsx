@@ -64,14 +64,14 @@ function FleetsDetails({ temp, setTemp }) {
             <div className=' mt-[2rem] ml-[2rem]'>
                 <ul className='flex  text-[1.3rem] underline text-hoverColor'>
                     <Link to={'/'}>
-                        <li>Home</li>
+                        <li>Home / </li>
                     </Link>
 
                     {
                         navPage == 'subcategory' ? <Link to={`/${navPage}/${encodeNavData}`}>
                             <li>/ {chartertype}</li>
                         </Link> : <Link to={`/${navPage}/${chartertype}`}>
-                            <li>{navPage}</li>
+                            <li> {navPage}</li>
                         </Link>
                     }
 
