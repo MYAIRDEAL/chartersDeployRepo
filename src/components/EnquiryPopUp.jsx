@@ -60,7 +60,7 @@ const EnquiryPopUp = (props) => {
                 return 1
             }
 
-            await axios.post('http://localhost:8000/api/admin/addenquiry', formData);
+            await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             // await axios.post('https://privatejetcharters-server-ttz1.onrender.com/api/admin/addenquiry', formData);
             setTemp(false)
             setFormData({
@@ -106,11 +106,11 @@ const EnquiryPopUp = (props) => {
                     aria-hidden="true"
                     className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black bg-opacity-50"
                 >
-                    <div className="relative p-4 w-full max-w-md max-h-full">
+                    <div className="relative w-full max-w-md max-h-full p-4">
                         {/* Modal Content */}
                         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             {/* Modal Header */}
-                            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                            <div className="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
                                 <h3 className="text-xl font-semibold tracking-[0.1rem] text-gray-900 dark:text-white">
                                     REQUEST A CALL BACK
                                 </h3>
@@ -119,7 +119,7 @@ const EnquiryPopUp = (props) => {
                                         setTemp(false)
                                     }}
                                     type="button"
-                                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    className="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                                 >
                                     <svg
                                         className="w-3 h-3"
@@ -145,7 +145,7 @@ const EnquiryPopUp = (props) => {
                                     <div>
                                         <label
                                             htmlFor="name"
-                                            className="flex items-start  mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                            className="flex items-start mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >
                                             Name <span className='text-red-600'>*</span>
                                         </label>
@@ -162,7 +162,7 @@ const EnquiryPopUp = (props) => {
                                     <div>
                                         <label
                                             htmlFor="email"
-                                            className="flex items-start  mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                            className="flex items-start mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >
                                             Email <span className='text-red-600'>*</span>
                                         </label>
@@ -179,7 +179,7 @@ const EnquiryPopUp = (props) => {
                                     <div>
                                         <label
                                             htmlFor="phone"
-                                            className="flex items-start  mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                            className="flex items-start mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >
                                             Phone <span className='text-red-600'>*</span>
                                         </label>
@@ -196,7 +196,7 @@ const EnquiryPopUp = (props) => {
                                     <div>
                                         <label
                                             htmlFor="service"
-                                            className="flex items-start  mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                            className="flex items-start mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >
                                             Serivce <span className='text-red-600'>*</span>
                                         </label>

@@ -41,7 +41,7 @@ function PushSearchRes() {
     useEffect(() => {
         const fetchFilteredSubcategories = async () => {
             try {
-                const response = await axios.post(`http://localhost:8000/api/admin/filterSubCategoryByType/${selectType}`);
+                const response = await axios.post(`https://privatejetcharters-server-ttz1.onrender.com/api/admin/filterSubCategoryByType/${selectType}`);
                 setPushRes(response?.data?.data);
             } catch (error) {
                 // handell in silently
@@ -67,21 +67,21 @@ function PushSearchRes() {
     return (
         <div className='bg-white flex flex-col justify-center items-center w-full p-[2rem]'>
             <div className='flex flex-col items-center justify-center'>
-                <h1 className='text-xl text-hoverColor mb-4'>
+                <h1 className='mb-4 text-xl text-hoverColor'>
                     OUR LUXURY CHARTER
                 </h1>
                 <h2 className='1487:text-[3rem] 344:text-[1.2rem] text-black mb-6'>
                     We Provide Luxury Deals for You
                 </h2>
-                <div className='p-4 rounded-lg max-w-4xl mx-auto'>
-                    <p className='text-center text-gray-300 text-lg'>
+                <div className='max-w-4xl p-4 mx-auto rounded-lg'>
+                    <p className='text-lg text-center text-gray-300'>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit doloribus porro vero! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et suscipit vel tempore quas.
                     </p>
                 </div>
             </div>
 
             {/* Type Selection Buttons */}
-            <div className='w-auto px-10 py-2 flex items-center font-medium justify-center bg-hoverColor bg-opacity-45 rounded-3xl flex-wrap gap-2'>
+            <div className='flex flex-wrap items-center justify-center w-auto gap-2 px-10 py-2 font-medium bg-hoverColor bg-opacity-45 rounded-3xl'>
                 <button
                     className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700 ${selectType === 'AllTypes' ? 'text-hoverColor' : 'text-black'}`}
                     onClick={() => handleTypeClick('AllTypes')}

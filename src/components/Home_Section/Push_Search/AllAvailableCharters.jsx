@@ -53,7 +53,7 @@ function AllAvailableCharters({ temp, setTemp }) {
     useEffect(() => {
         const fetchFilteredSubcategories = async () => {
             try {
-                const response = await axios.post(`http://localhost:8000/api/admin/filterSubCategoryByType/${selectType}`);
+                const response = await axios.post(`https://privatejetcharters-server-ttz1.onrender.com/api/admin/filterSubCategoryByType/${selectType}`);
                 setPushRes(response?.data?.data);
             } catch (error) {
                 // handell in silently
@@ -98,7 +98,7 @@ function AllAvailableCharters({ temp, setTemp }) {
             <h1 className=' text-[2rem] text-hoverColor text-center font-bold'>All Available Charters</h1>
 
             {/* Type Selection Buttons */}
-            <div className='w-auto px-10 py-2 sticky top-3 target:bg-hoverLighColor flex items-center font-medium justify-center bg-hoverLighColor rounded-3xl flex-wrap gap-2'>
+            <div className='sticky flex flex-wrap items-center justify-center w-auto gap-2 px-10 py-2 font-medium top-3 target:bg-hoverLighColor bg-hoverLighColor rounded-3xl'>
                 <button
                     className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700 ${selectType === 'AllTypes' ? 'text-amber-800' : 'text-black'}`}
                     onClick={() => handleTypeClick('AllTypes')}
