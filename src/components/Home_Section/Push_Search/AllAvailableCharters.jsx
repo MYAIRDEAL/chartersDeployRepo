@@ -87,7 +87,7 @@ function AllAvailableCharters({ temp, setTemp }) {
             </h1>
 
             {/* Type Selection Buttons */}
-            <div className="w-full px-6 py-3 sticky top-3 bg-hoverLighColor rounded-full flex justify-center flex-wrap gap-3">
+            <div className="w-full px-6 py-3  bg-hoverLighColor rounded-full flex justify-center flex-wrap gap-3">
                 <button
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectType === 'AllTypes' ? 'text-amber-800 font-semibold bg-white' : 'text-black bg-hoverLighColor'}`}
                     onClick={() => handleTypeClick('AllTypes')}
@@ -108,7 +108,12 @@ function AllAvailableCharters({ temp, setTemp }) {
                             )
                     )
                 ) : (
-                    <p className="text-black">No Type Available</p>
+                    <button
+                        className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700`}
+                    >
+                        No Types Available
+                    </button>
+                    // <p className="text-black">No Type Available</p>
                 )}
             </div>
 

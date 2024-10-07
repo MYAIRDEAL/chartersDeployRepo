@@ -106,7 +106,12 @@ function PushSearchRes() {
                         )
                     ))
                 ) : (
-                    <p className='text-black'>No Type Available</p>
+                    // <p className='text-black bg-red-900'>No Type Available</p>
+                    <button
+                        className={`px-2 h-[2.5rem] mx-3 outline-none rounded-lg transition-all duration-700`}
+                    >
+                        No Types Available
+                    </button>
                 )}
             </div>
 
@@ -117,7 +122,7 @@ function PushSearchRes() {
                         <FightCard key={index} props={element} />
                     ))
                 ) : (
-                    <h1>No Data Available</h1>
+                    <h1 >No Data Available</h1>
                 )}
             </div>
 
